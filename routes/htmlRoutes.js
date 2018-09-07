@@ -11,9 +11,25 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/home", function(req, res) {
+    res.render("index", {
+      msg: "Home!"
+    });
+  });
+
+  app.get("/user", function(req, res) {
+    res.render("user", {
+      text: "UserName"
+    });
+  });
+
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
-    db.User.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
+    db.User.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbExample) {
       res.render("example", {
         example: dbExample
       });

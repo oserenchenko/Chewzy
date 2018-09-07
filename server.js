@@ -1,18 +1,54 @@
-require("dotenv").config();
-var express = require("express");
-var bodyParser = require("body-parser");
+const express = require('express');
+const path = require('path');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const dotenv = require('dotenv');
+const passport = require('passport');
+const Auth0Strategy = require('passport-auth0');
+const flash = require('connect-flash');
 var exphbs = require("express-handlebars");
 
-var db = require("./models");
+dotenv.load();
 
-var app = express();
+const routes = require('./routes/index');
+const user = require('./routes/user');
+
 var PORT = process.env.PORT || 3000;
 
-// Middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(express.static("public"));
+// This will configure Passport to use Auth0
+const strategy = new Auth0Strategy(
+  {
+    domain: process.env.AUTH0_DOMAIN,
+    clientID: process.env.AUTH0_ID,
+    clientSecret: process.env.AUTH0_CLIENT_SECRET,
+    callbackURL:
+      process.env.AUTH0_CALLBACK_URL || 'http://localhost:3000/callback'
+  },
+  function(accessToken, refreshToken, extraParams, profile, done) {
+    // accessToken is the token to call Auth0 API (not needed in the most cases)
+    // extraParams.id_token has the JSON Web Token
+    // profile has all the information from the user
+    return done(null, profile);
+  }
+);
 
+passport.use(strategy);
+
+// you can use this section to keep a smaller payload
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
+
+const app = express();
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
 // Handlebars
 app.engine(
   "handlebars",
@@ -22,27 +58,86 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
-// Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(
+  session({
+    secret: 'shhhhhhhhh',
+    resave: true,
+    saveUninitialized: true
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.static(path.join(__dirname, 'public')));
 
-var syncOptions = { force: false };
+app.use(flash());
 
-// If running a test, set syncOptions.force to true
-// clearing the `testdb`
-if (process.env.NODE_ENV === "test") {
-  syncOptions.force = true;
+// Handle auth failure error messages
+app.use(function(req, res, next) {
+ if (req && req.query && req.query.error) {
+   req.flash("error", req.query.error);
+ }
+ if (req && req.query && req.query.error_description) {
+   req.flash("error_description", req.query.error_description);
+ }
+ next();
+});
+
+// Check logged in
+app.use(function(req, res, next) {
+  res.locals.loggedIn = false;
+  if (req.session.passport && typeof req.session.passport.user != 'undefined') {
+    res.locals.loggedIn = true;
+  }
+  next();
+});
+
+app.use('/', routes);
+app.use('/user', user);
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
+// error handlers
+
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+  app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+      message: err.message,
+      error: err
+    });
+  });
 }
 
-// Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
-    console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
+// production error handler
+// no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: {}
   });
 });
+
+app.listen(PORT, function() {
+  console.log(
+    "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+    PORT,
+    PORT
+  );
+});
+
 
 module.exports = app;
