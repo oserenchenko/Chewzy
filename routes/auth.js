@@ -23,6 +23,8 @@ router.get('/home',
   }
 );
 
+
+
 /* GET user profile. */
 router.get('/user', ensureLoggedIn, function(req, res, next) {
   res.render('user', {
