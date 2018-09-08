@@ -1,0 +1,108 @@
+html {
+    font-size: 12px;
+    font-family: "Helvetica";
+}
+
+body {
+    background-color: rgba(230, 230, 230);
+}
+
+#name-tag-wrap {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /* border:1px black solid; */
+    box-shadow: 3px 3px 3px black;
+    background-color: white;
+}
+
+#app-name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+    color: rgba(80, 80, 80, 1);
+    border-top: 1px gray solid;
+    border-bottom: 1px gray solid;
+}
+
+#app-name-border {
+    width: 300px;
+    margin: 0 auto;
+    padding: 30px auto;
+}
+
+#tag {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 11px;
+    margin-top: -20px;
+}
+
+#btns-wrap-image {
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    margin-top: 100px;
+    /* border: 1px rgba(0, 0, 0, 0) solid; */
+    background-image: url("../images/table.jpeg");
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+#btn-wrap-color {
+    display: flex;
+    flex-direction: column;
+    margin:auto;
+    /* margin-top: 25px; */
+    /* border:1px red solid; */
+    background-color: rgba(255, 255, 255, 1);
+    /* box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.3); */
+    height: 60px;
+    /* border-radius: 10px; */
+    width: 100%;
+}
+
+#btn-wrap-position {
+ justify-content: space-around;
+    margin: 0 auto;
+    display: flex;
+    /* flex-direction:column; */
+    margin-top:100px;
+    /* border:1px red solid; */
+    width:300px;
+}
+
+#log-in-directions{
+    color:orange;
+    text-align:center;
+    margin:0 auto;
+    margin-top:5px;
+    font-size:12px;
+    font-weight:bold;
+    width:200px;
+    text-align:center;
+    letter-spacing:.7px;
+    padding:10px;
+}
+
+.btns-style {
+    display: block;
+    padding: 10px;
+    color:  orange;
+    font-weight: bold;
+    font-size: 14px;
+    width: 100px;
+    border-radius: 5px;
+    box-shadow: 2px 3px 2px #00000080;
+    border: 1px gray solid;
+    background-color: rgba(255, 255, 255, 0.9);
+
+    margin-top:10px;
+}
+
+.btns-style:hover{
+    background-color: rgba(255, 255, 255, 1);
+
+    border:none;
+    text-decoration: none;
+}
