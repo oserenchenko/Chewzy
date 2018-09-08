@@ -7,6 +7,10 @@ router.get('/', function (req, res, next) {
     res.render('index');
 });
 
+router.get('/home', function (req, res, next) {
+    res.render("home")
+  })
+
 router.get('/login', passport.authenticate('auth0', {
         scope: 'openid email profile'
     }),
@@ -15,9 +19,9 @@ router.get('/login', passport.authenticate('auth0', {
     });
 
 router.get('/logout', function (req, res) {
-    console.log("you have been logged out")
     req.logout();
-    res.redirect('/');
+    res.redirect("https://chewzy.auth0.com/v2/logout/?returnTo=http://localhost:3000/");
+
 });
 
 router.get('/callback',
@@ -25,7 +29,7 @@ router.get('/callback',
         failureRedirect: '/failure'
     }),
     function (req, res) {
-        res.redirect(req.session.returnTo || '/user');
+        res.redirect(req.session.returnTo || '/home');
     }
 );
 
