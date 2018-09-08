@@ -1,16 +1,14 @@
 <h1> home page </h1>
-<p> Your location is {{location}}, or choose another location </p>
+<button id="useGeolocation">Use My Location</button>
+<input type="text" id="inputCity">
 <div id="questions-container">
-  <ul>
 
-</ul>
 </div>
-{{!-- <script
-  src="http://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script> --}}
-  <script
-  src="http://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2pDiGU9PjqQheeVvFvAefz7qgOCipwbA&libraries=places&callback=initMap"></script>
+<script src="/js/geolocate.js"></script>
+<script src="/js/index.js"></script>
 <script src="/js/questions.js"></script>
+
+
