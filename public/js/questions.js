@@ -105,9 +105,9 @@ function randomizeQuestions() {
     for (var i = 1; i < 6; i++) {
       getRandomNumber();
       questionNumber = "question" + randomNumber;
-      console.log("question is " + questionNumber);
+      // console.log("question is " + questionNumber);
       var groupNumber = eval("group" + i);
-      console.log("group number is " + i);
+      // console.log("group number is " + i);
       //   console.log(groupNumber[questionIndex]);
       questionsArr.push();
       $("#questions-container").append(
@@ -116,7 +116,7 @@ function randomizeQuestions() {
           "</p> <select> <option class='one' value='one'>1</option> <option class='two 'value='two'>2</option><option class='three' value='three'>3</option><option class='four' value='four'>4</option><option class='five' value='five'>5</option></select></div>"
       );
     }
-    console.log(questionsArr);
+    // console.log(questionsArr);
   }
 
   displayQuestions();
