@@ -1,77 +1,73 @@
 var group1 = [
   {
     question1: "You enjoy traveling to new, exotic countries.",
-    groupId: 1
+
   },
   {
     question2: "You are feeling excited and spontaneous.",
-    groupId: 2
+
   },
   {
     question3: "You thrive on meeting new people, socializing.",
-    groupId: 3
+  
   },
   {
     question4: "You feel like exploring new cultures.",
-    groupId: 4
+
   }
 ];
 
 var group2 = [
   {
     question1: "You like order and following a rigid schedule.",
-    groupId: 1
+
   },
   {
     question2: "You are feeling selective and careful.",
-    groupId: 2
+
   },
   {
     question3: "You like familiarity.",
-    groupId: 3
+
   },
   {
     question4: "You are feeling overwhelmed and want something simple.",
-    groupId: 4
+
   }
 ];
 
 var group3 = [
   {
     question1: "You would rather have a cozy night in than go out.",
-    groupId: 1
+
   },
   {
     question2: "You've had a long day and want warmth and comfort.",
-    groupId: 2
+
   },
   {
     question3:
       "One of your favorites things is to cuddle up next to a fireplace.",
-      groupId: 4
+
   },
   {
     question4: "You are feeling nostalgic and sentimental.",
-    groupId: 5
+
   }
 ];
 
 var group4 = [
   {
     question1: "You are feeling healthy.",
-    groupId: 1
   },
   {
     question2: "You like feeling refreshed and light.",
-    groupId: 2
   },
   {
     question3: "You are feeling fit and pumped.",
-    groupId: 3
   },
   {
     question4: "You enjoy a daily workout.",
-    groupId: 4
   }
 ];
 
@@ -115,19 +111,13 @@ function randomizeQuestions() {
       //   console.log(groupNumber[questionIndex]);
       questionsArr.push();
       $("#questions-container").append(
-        "<p>" + groupNumber[questionIndex][questionNumber] + "</p"
+        "<div> <p>" +
+          groupNumber[questionIndex][questionNumber] +
+          "</p> <select> <option class='one' value='one'>1</option> <option class='two 'value='two'>2</option><option class='three' value='three'>3</option><option class='four' value='four'>4</option><option class='five' value='five'>5</option></select></div>"
       );
     }
     console.log(questionsArr);
-    // for (var i = 0; i <= 4; i++) {
-    //   //   console.log("questionNumber is " + questionNumber);
-    //   console.log(questionsArr[i][questionNumber]);
-    //   $("#questions-container").append(
-    //     "<p>" + questionsArr[i][questionNumber] + "</p"
-    //   );
-    // }
   }
-  //display the questions on the home page
 
   displayQuestions();
 }
