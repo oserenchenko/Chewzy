@@ -11,6 +11,7 @@ initMap = function() {
         lat: pos.lat,
         lng: pos.lng
       });
+      $("#useGeolocation").css("display", "block");
     });
   } else {
     // Browser doesn't support Geolocation
