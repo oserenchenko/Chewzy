@@ -23,8 +23,10 @@ module.exports = function(app) {
   });
 
   app.post("/api/users", function(req, res) {
-    db.User.create({
-      email: req.body.email,
+    db.User.findOrCreate({
+      where: {
+        email: req.body.email
+      }
     }).then(function(dbExample) {
       res.json(dbExample);
     });
