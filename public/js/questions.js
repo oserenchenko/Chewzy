@@ -110,8 +110,9 @@ function randomizeQuestions() {
       // console.log("group number is " + i);
       //   console.log(groupNumber[questionIndex]);
       questionsArr.push();
+      //renders inside home.handlebars
       $("#questions-container").append(
-        "<div> <p>" +
+        "<div class='question-option'> <p class='one-question'>" +
           groupNumber[questionIndex][questionNumber] +
           "</p> <select> <option class='one' value='one'>1</option> <option class='two 'value='two'>2</option><option class='three' value='three'>3</option><option class='four' value='four'>4</option><option class='five' value='five'>5</option></select></div>"
       );

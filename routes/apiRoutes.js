@@ -1,9 +1,14 @@
 var db = require("../models");
 var restaurantData = [{
-  one: "hello"
+  // one: "hello"
 }];
 
 module.exports = function (app) {
+  app.get("/api/examples", function(req, res) {
+    db.User.findAll({}).then(function(dbExamples) {
+      res.json(dbExamples);
+    });
+  });
   // Get all examples
   app.get("/api/search_results", function (req, res) {
     res.json(restaurantData);

@@ -9,6 +9,7 @@ const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 const flash = require('connect-flash');
 var exphbs = require("express-handlebars");
+var db = require("./models");
 
 dotenv.load();
 
@@ -16,6 +17,7 @@ const routes = require('./routes/index');
 const user = require('./routes/user');
 
 var PORT = process.env.PORT || 3000;
+var syncOptions = { force: false };
 
 // This will configure Passport to use Auth0
 const strategy = new Auth0Strategy(
@@ -137,13 +139,16 @@ app.use(function(err, req, res, next) {
   });
 });
 
-app.listen(PORT, function() {
-  console.log(
-    "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-    PORT,
-    PORT
-  );
-});
 
+
+db.sequelize.sync(syncOptions).then(function() {
+  app.listen(PORT, function() {
+    console.log(
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      PORT,
+      PORT
+    );
+  });
+});
 
 module.exports = app;

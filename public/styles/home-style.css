@@ -1,4 +1,18 @@
-.questions-container{
+#questions-container{
     margin-top:20px;
     border:1px red solid;
+    display:flex;
+    justify-content: center;
+    flex-direction:column;
+}
+
+.question-option{
+    display:flex;
+    flex-direction:row;
+    margin-bottom:20px;
+    margin-top:5px;
+}
+
+.one-question{
+    margin-right:10px;
 }
