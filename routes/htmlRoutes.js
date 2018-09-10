@@ -23,6 +23,10 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/signup", function(req, res) {
+    res.render("signup");
+  });
+
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
     db.User.findOne({
