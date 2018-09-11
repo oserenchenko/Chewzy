@@ -18,33 +18,39 @@
 
 <div id="category-drop-down">
   <p id="directions-category"> Pick a restaurant category</p>
-     <select>
-       <option value="cafe">Cafe</option>
-       <option value="breakfast">Breakfast</option>
-       <option value="lunch">Lunch</option>
-       <option value="dinner">Dinner</option>
-       <option value="pubs/bars">Pubs/Bars</option>
-     </select>
+   {{!-- <div class="custom-select"> --}}
+        <select id="category-select">
+           <option value="cafe">Cafe</option>
+           <option value="breakfast">Breakfast</option>
+           <option value="lunch">Lunch</option>
+           <option value="dinner">Dinner</option>
+           <option value="pubs/bars">Pubs/Bars</option>
+         </select>
+       {{!-- </div> --}}
      </div>
 
       <div id="wrap-user-input">
       <div id="location">
-         <button id="useGeolocation">Use My Location</button>
+         <button class="button" id="useGeolocation">Use My Location</button>
+          <label> or </label>
          <label> Choose the city where you want to eat </label>
+         <div id="input-wrap">
          <input type="text" id="inputCity">
+         </div>
       </div>
 
       <div id="questions-container">
 
      </div>
-    <button id="submit">Submit</button>
+    <button class="button" id="submit">Submit</button>
 </div>
-</div>
+
 <footer>
     <div>
         <p id="footer"> made by <a class="github-link" href="https://github.com/oserenchenko" targe="_blank">Olga</a> and <a  class="github-link"href="https://github.com/innaleikina" targe="_blank">Inna</a> using Zomato</p>
     </div>
 </footer>
+</div>
 
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
