@@ -64,7 +64,7 @@ function restaurantPush(responseArr) {
       userRating: restaurant.user_rating.aggregate_rating
     };
     restaurantsArr.push(newRestaurant);
-  
+
     $.ajax("/search_results", {
       type: "POST",
       data: newRestaurant
@@ -159,3 +159,39 @@ $("#submit").on("click", function() {
   }
 });
 
+//when a restaurant is selected
+$(document).on("click", ".selectRestaurant", function() {
+  var name = $(this).text();
+  var lat = $(this).attr("lat");
+  var lng = $(this).attr("lng");
+  console.log(lat, lng);
+  console.log(name);
+
+  var googleUrl =
+    "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?key=AIzaSyA2pDiGU9PjqQheeVvFvAefz7qgOCipwbA&fields=name,formatted_address,place_id&input=" +
+    name +
+    "&inputtype=textquery&locationbias=point:" +
+    lat +
+    "," +
+    lng;
+
+  $.ajax({
+    url: googleUrl,
+    method: "GET"
+  }).then(function(response) {
+    console.log(response);
+    var restaurantID = response.candidates[0].place_id;
+    console.log(restaurantID);
+
+    var detailsUrl =
+      "https://maps.googleapis.com/maps/api/place/details/json?key=AIzaSyA2pDiGU9PjqQheeVvFvAefz7qgOCipwbA&placeid=" +
+      restaurantID;
+
+    $.ajax({
+      url: detailsUrl,
+      method: "GET"
+    }).then(function(response) {
+      console.log(response);
+    });
+  });
+});
