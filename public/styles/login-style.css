@@ -22,6 +22,7 @@ body {
     color: rgba(80, 80, 80, 1);
     border-top: 1px gray solid;
     border-bottom: 1px gray solid;
+    color:orange;
 }
 
 #app-name-border {
@@ -37,28 +38,32 @@ body {
     margin-top: -20px;
 }
 
+
 #btns-wrap-image {
     width: 400px;
-    height: 400px;
+    height: 80vh;
     margin: 0 auto;
-    margin-top: 100px;
+    margin-top: 10px;
     /* border: 1px rgba(0, 0, 0, 0) solid; */
     background-image: url("../images/table.jpeg");
     background-position: center;
     background-size: cover;
     border-radius: 10px;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    /* border:1px red solid; */
 }
 
 #btn-wrap-color {
     display: flex;
     flex-direction: column;
     margin:auto;
-    /* margin-top: 25px; */
+    margin-top:30px;
     /* border:1px red solid; */
-    background-color: rgba(255, 255, 255, 1);
-    /* box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.3); */
-    height: 60px;
-    /* border-radius: 10px; */
     width: 100%;
 }
 
@@ -66,43 +71,105 @@ body {
  justify-content: space-around;
     margin: 0 auto;
     display: flex;
-    /* flex-direction:column; */
-    margin-top:100px;
+    width:280px;
     /* border:1px red solid; */
-    width:300px;
 }
 
 #log-in-directions{
+    background-color: rgba(255, 255, 255, 1);
     color:orange;
     text-align:center;
     margin:0 auto;
     margin-top:5px;
     font-size:12px;
     font-weight:bold;
-    width:200px;
+    width:100%;
     text-align:center;
     letter-spacing:.7px;
     padding:10px;
+    padding-top:15px;
+    margin-bottom:20px;
+    height:50px;
+    /* border:1px red solid; */
 }
 
 .btns-style {
     display: block;
     padding: 10px;
-    color:  orange;
+    color:  white;
     font-weight: bold;
     font-size: 14px;
     width: 100px;
     border-radius: 5px;
     box-shadow: 2px 3px 2px #00000080;
     border: 1px gray solid;
-    background-color: rgba(255, 255, 255, 0.9);
-
+    background-color: orange;
+    /* border:1px red solid; */
     margin-top:10px;
+}
+
+.btns-style-skip{
+    color:  orange;
+    font-weight: bold;
+    font-size: 14px;
+    background-color:white;
+    box-shadow:none;
+    /* border:0px red solid; */
+    border-bottom:1px rgba(80, 80, 80, 1) solid;
+    margin:0 auto;
+    /* border:1px red solid; */
+    display:block;
+    margin-top:20px;
+
+}
+
+.btns-style:focus{
+    outline:0;
+}
+
+.btns-style-skip:focus{
+    outline:0;
+}
+
+.btns-style-skip:hover{
+    border-bottom:1px orange solid;
 }
 
 .btns-style:hover{
     background-color: rgba(255, 255, 255, 1);
-
     border:none;
     text-decoration: none;
+    color:orange;
+}
+
+#about{
+    /* margin-top:-200px; */
+    /* border:1px red solid; */
+    background-color:rgba(255,255,255,.9);
+    font-size:13px;
+    text-align:center;
+    width:350px;
+    padding:25px;
+    margin:0 auto;
+    margin-top:40px;
+    border-radius:5px;
+
+}
+
+.push{
+    margin-bottom:10px;
+}
+
+
+#footer{
+    background-color:white;
+    margin:0;
+    height:50px;
+    padding-top:10px;
+    text-align:center;
+    color:rgba(80, 80, 80, 1);
+}
+
+.github-link{
+    color:orange;
 }

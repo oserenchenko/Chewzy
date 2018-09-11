@@ -114,7 +114,9 @@ function randomizeQuestions() {
       $("#questions-container").append(
         "<div class='question-option'> <p class='one-question'>" +
           groupNumber[questionIndex][questionNumber] +
-          "</p> <select class=" + i + "> <option class='select' value=''>Select</option> <option class='one' value='1'>1</option> <option class='two 'value='2'>2</option><option class='three' value='3'>3</option><option class='four' value='4'>4</option><option class='five' value='5'>5</option></select></div>"
+
+          "</p> <select id='number-select'> <option class='one' value='one'>1</option> <option class='two 'value='two'>2</option><option class='three' value='three'>3</option><option class='four' value='four'>4</option><option class='five' value='five'>5</option></select></div>"
+
       );
     }
     // console.log(questionsArr);

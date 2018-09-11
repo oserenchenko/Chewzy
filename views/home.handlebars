@@ -3,27 +3,57 @@
 <head>
     <title> Home </title>
 
+
   <link rel="stylesheet" href="/styles/home-style.css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
-<h1> home page </h1>
-<button id="useGeolocation">Use My Location</button>
-<input type="text" id="inputCity">
-<p> Pick a restaurant category</p>
-<select id="selectCategory">
-  <option id="select" value="0">Select</option>
-  <option id="cafe" value="6">Cafe</option>
-  <option id="breakfast" value="8">Breakfast</option>
-  <option id="breakfast" value="9">Lunch</option>
-  <option id="dinner" value="10">Dinner</option>
-  <option id="pubs/bars" value="11">Pubs/Bars</option>
-</select>
-<div id="questions-container">
 
+
+  <div id="wrap-all">
+     <div id="name-tag-wrap">
+         <div id="app-name-border">
+            <h1 id="app-name"> CHEWZY </h1>
+          </div>
+          <p id="tag">  take a short quiz and find a new place to eat</p>
+      </div>
+
+<div id="category-drop-down">
+  <p id="directions-category"> Pick a restaurant category</p>
+   {{!-- <div class="custom-select"> --}}
+        <select id="category-select">
+           <option value="cafe">Cafe</option>
+           <option value="breakfast">Breakfast</option>
+           <option value="lunch">Lunch</option>
+           <option value="dinner">Dinner</option>
+           <option value="pubs/bars">Pubs/Bars</option>
+         </select>
+       {{!-- </div> --}}
+     </div>
+
+      <div id="wrap-user-input">
+      <div id="location">
+         <button class="button" id="useGeolocation">Use My Location</button>
+          <label> or </label>
+         <label> Choose the city where you want to eat </label>
+         <div id="input-wrap">
+         <input type="text" id="inputCity">
+         </div>
+      </div>
+
+      <div id="questions-container">
+
+     </div>
+    <button class="button" id="submit">Submit</button>
 </div>
 
-<button id="submit">Submit</button>
-<a href="/search_results">See Results</a>
+<footer>
+    <div>
+        <p id="footer"> made by <a class="github-link" href="https://github.com/oserenchenko" targe="_blank">Olga</a> and <a  class="github-link"href="https://github.com/innaleikina" targe="_blank">Inna</a> using Zomato</p>
+    </div>
+</footer>
+</div>
+
+
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2pDiGU9PjqQheeVvFvAefz7qgOCipwbA&libraries=places&callback=initMap"></script>

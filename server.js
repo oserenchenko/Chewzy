@@ -140,7 +140,6 @@ app.use(function(err, req, res, next) {
 });
 
 
-
 db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {
     console.log(
