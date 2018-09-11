@@ -1,4 +1,5 @@
 var db = require("../models");
+var restaurantData = [];
 
 module.exports = function(app) {
   // Load index page
@@ -15,6 +16,19 @@ module.exports = function(app) {
     res.render("index", {
       msg: "Home!"
     });
+  });
+
+  app.get("/search_results", function(req, res) {
+    res.render("results", {
+      restaurants: restaurantData
+    });
+    restaurantData = [];
+  });
+
+  // search post request
+  app.post("/search_results", function(req, res) {
+    restaurantData.push(req.body);
+    res.json(req.body);
   });
 
   app.get("/user", function(req, res) {

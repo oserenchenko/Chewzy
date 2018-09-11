@@ -1,1 +1,12 @@
-<h1>Hello</h1>
+<h1>Hello - Working!</h1>
+
+<div class="allRes">
+  {{#each restaurants}}
+    <div class = {{this.num}} lat = {{this.lat}} lng = {{this.lng}}>
+      <h2>{{this.name}}</h2>
+      <p>Cuisine(s): {{this.cuisines}}</p>
+      <p>Address: {{this.address}}</p>
+      <p>User Rating: {{this.userRating}}</p>
+    </div>
+  {{/each}}
+</div>
