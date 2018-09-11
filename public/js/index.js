@@ -28,7 +28,6 @@ function pickingCuisines() {
   for (i = 1; i < 6; i++) {
     surveyAnsArr.push($("." + i).val());
   }
-  console.log(surveyAnsArr);
   for (var arrayIndex = 0; arrayIndex < surveyAnsArr.length; arrayIndex++) {
     if (surveyAnsArr[arrayIndex] > largestNumber) {
       largestNumber = surveyAnsArr[arrayIndex];
@@ -51,32 +50,30 @@ function pickingCuisines() {
 }
 
 //loop through restaurant api results and push to restaurants array
-// function restaurantPush(responseArr) {
-//   for (var i = 0; i < responseArr.length; i++) {
-//     restaurantsArr.push(responseArr[i].restaurant);
-//   }
-//   console.log(restaurantsArr);
-//   var restaurant = restaurantsArr[0];
-//   var newRestaurant = {
-//     id: restaurant.id,
-//     name: restaurant.name,
-//     cuisines: restaurant.cuisines,
-//     address: restaurant.location.address,
-//     lat: restaurant.location.latitude,
-//     lng: restaurant.location.longitude,
-//     userRating: restaurant.user_rating.aggregate_rating
-//   };
-
-//   console.log(newRestaurant);
-
-//   $.ajax("/api/search_results", {
-//     type: "POST",
-//     data: newRestaurant
-//   }).then(function () {
-//     console.log("adding new restaurant");
-//     location.reload();
-//   });
-// }
+function restaurantPush(responseArr) {
+  for (var i = 0; i < responseArr.length; i++) {
+    var restaurant = responseArr[i].restaurant;
+    var newRestaurant = {
+      num: i,
+      id: restaurant.id,
+      name: restaurant.name,
+      cuisines: restaurant.cuisines,
+      address: restaurant.location.address,
+      lat: restaurant.location.latitude,
+      lng: restaurant.location.longitude,
+      userRating: restaurant.user_rating.aggregate_rating
+    };
+    restaurantsArr.push(newRestaurant);
+  
+    $.ajax("/search_results", {
+      type: "POST",
+      data: newRestaurant
+    }).then(function() {
+      console.log("adding new restaurant");
+      location.reload();
+    });
+  }
+}
 
 //zomato api call function
 function zomatoCall(latitude, longitude, start) {
@@ -113,8 +110,9 @@ function zomatoCall(latitude, longitude, start) {
         numCall += 1;
       }
     } else if (numCall === 1) {
-      console.log(response);
-      // restaurantPush(response.restuarants);
+      var responseArr = response.restaurants;
+      console.log(responseArr);
+      restaurantPush(responseArr);
     }
   });
 }
@@ -160,3 +158,4 @@ $("#submit").on("click", function() {
     category = "";
   }
 });
+
