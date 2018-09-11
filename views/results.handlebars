@@ -1,12 +1,16 @@
-<h1>Hello - Working!</h1>
+<h1>Restaurant Results</h1>
 
 <div class="allRes">
   {{#each restaurants}}
-    <div class = {{this.num}} lat = {{this.lat}} lng = {{this.lng}}>
-      <h2>{{this.name}}</h2>
+    <div>
+      <h2 class = "selectRestaurant" index = {{this.num}} lat = {{this.lat}} lng = {{this.lng}}>{{this.name}}</h2>
       <p>Cuisine(s): {{this.cuisines}}</p>
       <p>Address: {{this.address}}</p>
       <p>User Rating: {{this.userRating}}</p>
     </div>
   {{/each}}
 </div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2pDiGU9PjqQheeVvFvAefz7qgOCipwbA&libraries=places"></script>
+<script src="/js/index.js"></script>
