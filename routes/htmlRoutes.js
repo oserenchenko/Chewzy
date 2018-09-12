@@ -1,5 +1,6 @@
 var db = require("../models");
 var restaurantData;
+var oneRestaurant;
 
 module.exports = function(app) {
   // Load index page
@@ -28,6 +29,19 @@ module.exports = function(app) {
   app.post("/search_results", function(req, res) {
     restaurantData = req.body.data;
     console.log(restaurantData);
+    res.json(req.body);
+  });
+
+  app.get("/one_result", function(req, res) {
+    res.render("one_result", {
+      restaurant: oneRestaurant
+    });
+  });
+
+  // search post request
+  app.post("/one_result", function(req, res) {
+    oneRestaurant = req.body.data;
+    console.log(oneRestaurant);
     res.json(req.body);
   });
 

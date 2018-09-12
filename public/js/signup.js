@@ -13,7 +13,7 @@ function addToMySql() {
   });
 }
 
-$("#submit-signup").on("click", function(event) {
+$("#submit-signup").on("click", function (event) {
   event.preventDefault();
 
   addToMySql();
@@ -23,7 +23,7 @@ $("#submit-signup").on("click", function(event) {
 
   console.log(email);
   console.log(password)
-  
+
 
   var settings = {
     "async": true,
@@ -36,10 +36,7 @@ $("#submit-signup").on("click", function(event) {
       "postman-token": "dc399309-9780-237b-65cc-56545f11df8d"
     },
     "processData": false,
-    // "data": "{\n   \"email\":\"bb1s@bb.com\",\n   \"password\":\"12pp@gggg\",\n   \"connection\": \"Username-Password-Authentication\"\n   \n    }"
-    // "data": "{\"email\": \"hello22@h.com\",\"password\": \"$bb1@U__q\",\"connection\": \"Username-Password-Authentication\"\n   \n    }"
-
-    // "data": "{\n   \"email\":\"$('#signup-email').val()\",\n   \"password\":\"$('#signup-password').val()\",\n   \"connection\": \"Username-Password-Authentication\"\n   \n    }"
+    "data": "{\n   \"email\":\"" + email + "\",\n   \"password\":\"" + password + "\",\n   \"connection\": \"Username-Password-Authentication\"\n   \n    }"
   };
 
   $.ajax(settings).done(function (response) {

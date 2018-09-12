@@ -1,5 +1,3 @@
-
-
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
     email: {
@@ -16,5 +14,14 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: sequelize.literal("NOW()")
     }
   });
+
+  User.associate = function(models) {
+    // Associating Author with Posts
+    // When an Author is deleted, also delete any associated Posts
+    User.hasMany(models.Favorite, {
+      onDelete: "cascade"
+    });
+  };
+
   return User;
 };
