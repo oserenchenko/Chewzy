@@ -50,9 +50,11 @@ function pickingCuisines() {
 }
 
 //loop through restaurant api results and push to restaurants array
+
 function restaurantPush(responseArr) {
 
   const restArr = [];
+
 
   for (var i = 0; i < responseArr.length; i++) {
     var restaurant = responseArr[i].restaurant;
@@ -80,7 +82,12 @@ function restaurantPush(responseArr) {
     console.log("adding new restaurant");
     window.location.href = "/search_results";
   });
+
 }
+
+// function redirectToResults() {
+//   window.location.href = "/search_results";
+// }
 
 //zomato api call function
 function zomatoCall(latitude, longitude, start) {
@@ -119,7 +126,9 @@ function zomatoCall(latitude, longitude, start) {
     } else if (numCall === 1) {
       var responseArr = response.restaurants;
       console.log(responseArr);
-      restaurantPush(responseArr);
+      restaurantPush(responseArr, function() {
+        window.location.href = "/search_results";
+      });
     }
   });
 }
@@ -153,7 +162,7 @@ $("#submit").on("click", function () {
   event.preventDefault();
   pickingCuisines();
   if (userLat > 0 && userLng < 0) {
-    if ($("#selectCategory").val() === "0") {
+    if ($("#selectCategory").val() === "0" || $("#inputCity").val() === " ") {
       console.log("Please select a category");
     } else {
       category = $("#selectCategory").val();

@@ -1,4 +1,7 @@
 var db = require("../models");
+var restaurantData = [{
+  one: "hello"
+}];
 
 module.exports = function(app) {
   app.get("/api/examples", function(req, res) {
