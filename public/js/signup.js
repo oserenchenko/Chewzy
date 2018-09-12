@@ -13,7 +13,7 @@ function addToMySql() {
   });
 }
 
-$("#submit-signup").on("click", function(event) {
+$("#submit-signup").on("click", function (event) {
   event.preventDefault();
 
   addToMySql();
@@ -23,7 +23,7 @@ $("#submit-signup").on("click", function(event) {
 
   console.log(email);
   console.log(password)
-  
+
 
   var settings = {
     "async": true,

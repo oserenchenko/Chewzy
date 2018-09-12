@@ -17,7 +17,7 @@ const routes = require('./routes/index');
 const user = require('./routes/user');
 
 var PORT = process.env.PORT || 3000;
-var syncOptions = { force: false };
+var syncOptions = { force: true };
 
 // This will configure Passport to use Auth0
 const strategy = new Auth0Strategy(

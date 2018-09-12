@@ -10,7 +10,6 @@ module.exports = function(app) {
     });
   });
 
-
   app.post("/api/users", function(req, res) {
     db.User.findOrCreate({
       where: {
@@ -25,10 +24,17 @@ module.exports = function(app) {
     db.User.findAll({}).then(function(dbExample) {
       var emailArr = [];
       for (var i = 0; i < dbExample.length; i++) {
-        emailArr.push({ email: dbExample[i].email });
+        emailArr.push({
+          email: dbExample[i].email
+        });
       }
       res.json(emailArr);
     });
   });
 
+  app.post("/api/favorite", function(req, res) {
+    db.Favorite.create(req.body).then(function(dbFavorite) {
+      res.json(dbFavorite);
+    });
+  });
 };
