@@ -13,12 +13,6 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/home", function(req, res) {
-    res.render("index", {
-      msg: "Home!"
-    });
-  });
-
   app.get("/search_results", function(req, res) {
     res.render("results", {
       restaurants: restaurantData
