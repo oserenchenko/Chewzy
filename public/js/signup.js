@@ -4,7 +4,7 @@ function addToMySql() {
       "Content-Type": "application/json"
     },
     type: "POST",
-    url: "/api/users",
+    url: "/api/favorite",
     data: JSON.stringify({
       email: $("#signup-email")
         .val()
@@ -16,7 +16,7 @@ function addToMySql() {
 $("#submit-signup").on("click", function (event) {
   event.preventDefault();
 
-  addToMySql();
+  // addToMySql();
 
   var email = $('#signup-email').val();
   var password = $('#signup-password').val();
