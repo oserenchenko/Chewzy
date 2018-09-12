@@ -13,7 +13,7 @@ router.get('/login',
 });
 
 // Perform the final stage of authentication and redirect to '/user'
-router.get('/home',
+router.get('/user',
   passport.authenticate('auth0', { failureRedirect: '/login' }),
   function(req, res) {
     if (!req.user) {
@@ -23,15 +23,21 @@ router.get('/home',
   }
 );
 
-
-
-/* GET user profile. */
-router.get('/user', ensureLoggedIn, function(req, res, next) {
-  res.render('user', {
-    user: req.user ,
-    userProfile: JSON.stringify(req.user, null, '  ')
-  });
-});
+router.get('/search_results',
+  passport.authenticate('auth0', { failureRedirect: '/login' }),
+  function(req, res) {
+    if (!req.user) {
+      throw new Error('user null');
+    }
+  }
+);
+// /* GET user profile. */
+// router.get('/user', ensureLoggedIn, function(req, res, next) {
+//   res.render('home', {
+//     user: req.user ,
+//     userProfile: JSON.stringify(req.user, null, '  ')
+//   });
+// });
 
 // Perform session logout and redirect to homepage
 router.get('/logout', (req, res) => {

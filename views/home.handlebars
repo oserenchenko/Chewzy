@@ -10,6 +10,7 @@
 
 
   <div id="wrap-all">
+     <p class="user"> USER : {{user}}</p>
      <div id="name-tag-wrap">
          <div id="app-name-border">
             <h1 id="app-name"> CHEWZY </h1>
@@ -43,9 +44,7 @@
       <div id="questions-container">
 
      </div>
-    <button class="button" id="submit">Submit</button>
-  
-<a href="/search_results">See Results</a>
+    <button email="{{user}}" class="button" id="submit">Submit</button>
 </div>
 
 <footer>
@@ -62,5 +61,6 @@
 <script src="/js/geolocate.js"></script>
 <script src="/js/index.js"></script>
 <script src="/js/questions.js"></script>
+<script src="/js/userEmail.js"></script>
 </body>
 

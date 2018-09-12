@@ -1,5 +1,5 @@
 <h1>Restaurant Results</h1>
-
+<p class="user"> {{user.userEmail}} </p>
 <div class="allRes">
   {{#each restaurants}}
     <div class = "selectRestaurant" lat = {{this.lat}} lng = {{this.lng}}>
@@ -7,6 +7,7 @@
       <p class="cuisines">{{this.cuisines}}</p>
       <p class="address">{{this.address}}</p>
       <p class="userRating">{{this.userRating}}</p>
+   
     </div>
   {{/each}}
 </div>
@@ -15,3 +16,4 @@
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2pDiGU9PjqQheeVvFvAefz7qgOCipwbA&libraries=places"></script>
 <script src="/js/index.js"></script>
 <script src="/js/oneResult.js"></script>
+<script src="/js/userEmail.js"></script>

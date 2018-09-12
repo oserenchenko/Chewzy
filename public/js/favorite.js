@@ -20,9 +20,11 @@ $("#favorite").on("click", function() {
     priceLevel: $(".priceLevel").text(),
     website: $(".website").text(),
     photoUrl: $(".photoUrl").attr("src"),
-    UserID:
+    email: $(".user")
+      .text()
+      .trim()
   };
-
+  console.log($(".user").text());
   console.log(restaurant);
 
   $.ajax("/api/favorite", {

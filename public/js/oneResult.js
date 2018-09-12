@@ -11,6 +11,7 @@ var priceLevel = "";
 var reviews;
 var website = "";
 var photoUrl = "";
+var userEmail = ""
 var oneResult;
 
 //when a restaurant is selected
@@ -27,6 +28,7 @@ $(document).on("click", ".selectRestaurant", function() {
   userRating = $(this)
     .children(".userRating")
     .text();
+    userEmail = $(".user").text();
   lat = $(this).attr("lat");
   lng = $(this).attr("lng");
 
@@ -76,7 +78,8 @@ $(document).on("click", ".selectRestaurant", function() {
         priceLevel: priceLevel,
         reviews: reviews,
         website: website,
-        photoUrl: photoUrl
+        photoUrl: photoUrl,
+        userEmail: userEmail
       };
       console.log(oneResult);
 

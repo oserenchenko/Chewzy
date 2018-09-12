@@ -65,17 +65,23 @@ function restaurantPush(responseArr) {
       address: restaurant.location.address,
       lat: restaurant.location.latitude,
       lng: restaurant.location.longitude,
-      userRating: restaurant.user_rating.aggregate_rating
+      userRating: restaurant.user_rating.aggregate_rating,
     };
     restArr.push(newRestaurant);
   }
 
   console.log(restArr);
 
+  var user = {
+    userEmail: $("#submit").attr("email")
+  }
+  restArr[0].userEmail;
+
   $.ajax("/search_results", {
     type: "POST",
     data: {
-      data: restArr
+      data: restArr,
+      user: user
     }
   }).then(function () {
     console.log("adding new restaurant");
@@ -83,10 +89,6 @@ function restaurantPush(responseArr) {
   });
 
 }
-
-// function redirectToResults() {
-//   window.location.href = "/search_results";
-// }
 
 //zomato api call function
 function zomatoCall(latitude, longitude, start) {
@@ -125,7 +127,7 @@ function zomatoCall(latitude, longitude, start) {
     } else if (numCall === 1) {
       var responseArr = response.restaurants;
       console.log(responseArr);
-      restaurantPush(responseArr, function() {
+      restaurantPush(responseArr, function () {
         window.location.href = "/search_results";
       });
     }

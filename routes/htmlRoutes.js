@@ -1,46 +1,39 @@
 var db = require("../models");
 var restaurantData;
 var oneRestaurant;
+var user;
 
 module.exports = function(app) {
   // Load index page
-  app.get("/", function(req, res) {
-    db.User.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
-  });
 
-  app.get("/home", function(req, res) {
-    res.render("index", {
-      msg: "Home!"
-    });
-  });
 
   app.get("/search_results", function(req, res) {
     res.render("results", {
-      restaurants: restaurantData
+      restaurants: restaurantData,
+      user: user
     });
   });
 
   // search post request
   app.post("/search_results", function(req, res) {
     restaurantData = req.body.data;
+    user = req.body.user;
     console.log(restaurantData);
+    console.log(user);
     res.json(req.body);
   });
 
   app.get("/one_result", function(req, res) {
     res.render("one_result", {
       restaurant: oneRestaurant
+
     });
   });
 
   // search post request
   app.post("/one_result", function(req, res) {
     oneRestaurant = req.body.data;
+    user = req.body.user;
     console.log(oneRestaurant);
     res.json(req.body);
   });
