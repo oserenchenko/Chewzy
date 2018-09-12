@@ -20,6 +20,7 @@ $("#favorite").on("click", function() {
     priceLevel: $(".priceLevel").text(),
     website: $(".website").text(),
     photoUrl: $(".photoUrl").attr("src"),
+
     // UserID:
   };
 

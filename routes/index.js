@@ -7,9 +7,9 @@ router.get('/', function (req, res, next) {
     res.render('index');
 });
 
-router.get('/home', function (req, res, next) {
-    res.render("home")
-  })
+// router.get('/home', function (req, res, next) {
+//     res.render("home")
+//   })
 
 router.get('/login', passport.authenticate('auth0', {
         scope: 'openid email profile'
@@ -24,14 +24,18 @@ router.get('/logout', function (req, res) {
 
 });
 
+
+
 router.get('/callback',
     passport.authenticate('auth0', {
         failureRedirect: '/failure'
     }),
     function (req, res) {
-        res.redirect(req.session.returnTo || '/home');
+        res.redirect(req.session.returnTo || '/user');
     }
 );
+
+
 
 router.get('/failure', function (req, res) {
     var error = req.flash("error");
