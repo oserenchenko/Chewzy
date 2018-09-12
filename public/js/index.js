@@ -50,7 +50,12 @@ function pickingCuisines() {
 }
 
 //loop through restaurant api results and push to restaurants array
-function restaurantPush(responseArr, callback) {
+
+function restaurantPush(responseArr) {
+
+  const restArr = [];
+
+
   for (var i = 0; i < responseArr.length; i++) {
     var restaurant = responseArr[i].restaurant;
     var newRestaurant = {
@@ -63,18 +68,21 @@ function restaurantPush(responseArr, callback) {
       lng: restaurant.location.longitude,
       userRating: restaurant.user_rating.aggregate_rating
     };
-    restaurantsArr.push(newRestaurant);
-
-    $.ajax("/search_results", {
-      type: "POST",
-      data: newRestaurant
-    }).then(function() {
-      console.log("adding new restaurant");
-      // location.reload();
-      
-    });
+    restArr.push(newRestaurant);
   }
-  callback;
+
+  console.log(restArr);
+
+  $.ajax("/search_results", {
+    type: "POST",
+    data: {
+      data: restArr
+    }
+  }).then(function () {
+    console.log("adding new restaurant");
+    window.location.href = "/search_results";
+  });
+
 }
 
 // function redirectToResults() {
@@ -103,7 +111,7 @@ function zomatoCall(latitude, longitude, start) {
   $.ajax({
     url: url,
     method: "GET"
-  }).then(function(response) {
+  }).then(function (response) {
     if (numCall === 0) {
       var numResults = response.results_found - 5;
       var randomStart = getRandomInt(0, 90);
@@ -126,13 +134,13 @@ function zomatoCall(latitude, longitude, start) {
 }
 
 //GRABBING GEOLOCATION LAT AND LNG
-$("#useGeolocation").on("click", function() {
+$("#useGeolocation").on("click", function () {
   userLat = $(this).attr("lat");
   userLng = $(this).attr("lng");
 });
 
 //GRABBING INPUT CITY LAND AND LNG
-$(document).ready(function() {
+$(document).ready(function () {
   var input = document.getElementById("inputCity");
   var options = {
     types: ["(cities)"],
@@ -142,7 +150,7 @@ $(document).ready(function() {
   };
 
   autocomplete = new google.maps.places.Autocomplete(input, options);
-  google.maps.event.addListener(autocomplete, "place_changed", function() {
+  google.maps.event.addListener(autocomplete, "place_changed", function () {
     var placeObj = autocomplete.getPlace();
     userLat = placeObj.geometry.location.lat();
     userLng = placeObj.geometry.location.lng();
@@ -150,7 +158,7 @@ $(document).ready(function() {
 });
 
 //ON SURVEY SUBMIT CLICK
-$("#submit").on("click", function() {
+$("#submit").on("click", function () {
   event.preventDefault();
   pickingCuisines();
   if (userLat > 0 && userLng < 0) {
@@ -163,12 +171,13 @@ $("#submit").on("click", function() {
       start = 0;
     }
   } else {
+    alert("Please select a location.");
     category = "";
   }
 });
 
 //when a restaurant is selected
-$(document).on("click", ".selectRestaurant", function() {
+$(document).on("click", ".selectRestaurant", function () {
   var name = $(this).text();
   var lat = $(this).attr("lat");
   var lng = $(this).attr("lng");
@@ -186,7 +195,7 @@ $(document).on("click", ".selectRestaurant", function() {
   $.ajax({
     url: googleUrl,
     method: "GET"
-  }).then(function(response) {
+  }).then(function (response) {
     console.log(response);
     var restaurantID = response.candidates[0].place_id;
     console.log(restaurantID);
@@ -198,7 +207,7 @@ $(document).on("click", ".selectRestaurant", function() {
     $.ajax({
       url: detailsUrl,
       method: "GET"
-    }).then(function(response) {
+    }).then(function (response) {
       console.log(response);
     });
   });
