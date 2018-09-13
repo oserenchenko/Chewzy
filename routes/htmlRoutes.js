@@ -53,18 +53,10 @@ module.exports = function(app) {
     }).then(function(dbFavorite) {
       console.log("third");
       console.log(dbFavorite);
-      var favorites = [];
-      for (var i = 0; i < dbFavorite.length; i++) {
-        favorites.push(dbFavorite[i].dataValues);
-      }
-      console.log("FAVORITES ARRAY");
-      console.log(favorites);
-      // var favorites = dbFavorite[0].dataValues;
-      // console.log(favorites);
 
       res.render("favorites", {
         email: email,
-        results: favorites
+        results: dbFavorite
       });
     });
   });
