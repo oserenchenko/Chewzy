@@ -145,7 +145,7 @@ select:focus {
 
 
 
-.submit-survey {
+.big-button {
     margin-top: 10px;
     margin-bottom: 5px;
     letter-spacing: 1px;
@@ -160,18 +160,59 @@ select:focus {
     transition:all .2s linear;
 }
 
-.submit-survey:focus{
+.big-button:focus{
     outline:0;
 }
 
-.submit-survey:hover{
+.big-button:hover{
     border-color:orange;
     color:orange;
     background-color:white;
 }
 
-.submit-survey:active{
+.big-button:active{
     border-color:white;
     color:white;
+    background-color:rgba(0,0,0,0);
+}
+
+#logout-button{
+    float: right;
+    margin-right:10px;
+    width:100px;
+    background-color:white;
+    color:orange;
+    border:1px orange solid;
+    cursor:pointer;
+}
+
+#logout-button:hover{
+    color:white;
+    background-color:orange;
+}
+
+#logout-button:active{
+    border:none;
+    background-color:rgba(0,0,0,0);
+}
+
+#favorites-button{
+    border:1px red solid;
+    float: left;
+    margin-left:10px;
+    background-color:white;
+    color:orange;
+    border:1px orange solid;
+    width:130px;
+    cursor:pointer;
+}
+
+#favorites-button:hover{
+    color:white;
+    background-color:orange;
+}
+
+#favorites-button:active{
+    border:none;
     background-color:rgba(0,0,0,0);
 }

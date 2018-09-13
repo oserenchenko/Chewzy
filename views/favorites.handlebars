@@ -1,16 +1,45 @@
-<h1>Favorites!</h1>
+<div id="wrap-all" id="home-img">
 
-<h1>{{email}}</h1>
-<div>
+      <div id="name-tag-wrap">
+        {{#if email}}
+          <a href="/logout"><button class="big-button" id="logout-button"> logout </button></a>
+          <a><button class="big-button"  id="favorites-button"> See Favorites </button></a>
+        {{else}}
+           <a href="/login"><button class="big-button" id="logout-button"> login/signup </button></a>
+        {{/if}}
+         <p class="user"> {{email}}</p>
+         <div id="app-name-border">
+            <h1 id="app-name"> CHEWZY </h1>
+          </div>
+          <p id="tag">  take a short quiz and find a new place to eat</p>
+      </div>
+
+      <div id="wrap-user-input" class="favorite-div">
+         
+         {{#each results}}
+           <div class="one-fave-wrap">
+           <div class="name">{{this.dataValues.name}}</div>
+           <div id="favorites-cuisines">{{this.dataValues.cuisines}}</div>
+           <div class="address" id="address-favorites">{{this.dataValues.address}}</div>
+           
+           <div>{{this.dataValues.userRating}}</div>
+           <div id="favorites-phone">{{this.dataValues.phoneNum}}</div>
+           <img src={{this.dataValues.photoUrl}}>
+           <p>{{this.dataValues.priceLevel}}</p>
+           <p>{{this.dataValues.website}}</p>
+           </div>
+          {{/each}}
+          </div>
+
+
+ <footer>
+    <div>
+        <p id="footer"> made by <a class="github-link" href="https://github.com/oserenchenko" targe="_blank">Olga</a> and <a  class="github-link"href="https://github.com/innaleikina" targe="_blank">Inna</a> using Zomato</p>
+    </div>
+</footer>
+</div>
+
+
     
-{{#each results}}
-<p>{{this.dataValues.name}}</p>
-<p>{{this.dataValues.address}}</p>
-<p>{{this.dataValues.cuisines}}</p>
-<p>{{this.dataValues.userRating}}</p>
-<p>{{this.dataValues.phoneNum}}</p>
-<img src={{this.dataValues.photoUrl}}>
-<p>{{this.dataValues.priceLevel}}</p>
-<p>{{this.dataValues.website}}</p>
-{{/each}}
+
 </div>

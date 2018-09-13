@@ -35,7 +35,8 @@ $("#favorite").on("click", function() {
   });
 });
 
-$(document).on("click", ".user", function() {
+$(document).on("click", "#favorites-button", function() {
+  console.log(email);
   var email = $(".user")
     .text()
     .trim();

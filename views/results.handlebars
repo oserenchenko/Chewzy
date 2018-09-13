@@ -2,7 +2,14 @@
 <div id="wrap-all" id="home-img">
  
      <div id="name-tag-wrap">
-               <p class="user"> {{user.userEmail}} </p>
+        
+{{#if user.userEmail}}
+          <a href="/logout"><button class="big-button" id="logout-button"> logout </button></a>
+          <a><button class="big-button"  id="favorites-button"> See Favorites </button></a>
+        {{else}}
+           <a href="/login"><button class="big-button" id="logout-button"> login/signup </button></a>
+        {{/if}}
+         <p class="user"> {{user.userEmail}} </p>
          <div id="app-name-border">
             <h1 id="app-name"> CHEWZY </h1>
           </div>
@@ -35,3 +42,4 @@
 <script src="/js/index.js"></script>
 <script src="/js/oneResult.js"></script>
 <script src="/js/userEmail.js"></script>
+<script src="/js/favorite.js"></script>
