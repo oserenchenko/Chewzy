@@ -1,12 +1,16 @@
 <h1>Favorites!</h1>
 
 <h1>{{email}}</h1>
-
-
-<p>{{favorites.name}}</p>
-
-{{!-- <div>
+<div>
+    
 {{#each results}}
-<p>{{this.name}}</p>
-{{#each}}
-</div> --}}
+<p>{{this.dataValues.name}}</p>
+<p>{{this.dataValues.address}}</p>
+<p>{{this.dataValues.cuisines}}</p>
+<p>{{this.dataValues.userRating}}</p>
+<p>{{this.dataValues.phoneNum}}</p>
+<img src={{this.dataValues.photoUrl}}>
+<p>{{this.dataValues.priceLevel}}</p>
+<p>{{this.dataValues.website}}</p>
+{{/each}}
+</div>

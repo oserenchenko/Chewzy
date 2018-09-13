@@ -9,9 +9,10 @@
 <body>
 
 
-  <div id="wrap-all">
-     <p class="user"> USER : {{user}}</p>
+  <div id="wrap-all" id="home-img">
+
      <div id="name-tag-wrap">
+            <p class="user">  {{user}}</p>
          <div id="app-name-border">
             <h1 id="app-name"> CHEWZY </h1>
           </div>
@@ -33,7 +34,7 @@
 
       <div id="wrap-user-input">
       <div id="location">
-         <button class="button" id="useGeolocation">Use My Location</button>
+         <button class="submit-survey" id="useGeolocation">Use My Location</button>
           <label> or </label>
          <label> Choose the city where you want to eat </label>
          <div id="input-wrap">
@@ -44,7 +45,7 @@
       <div id="questions-container">
 
      </div>
-    <button email="{{user}}" class="button" id="submit">Submit</button>
+    <button email="{{user}}" class="submit-survey" id="submit">Submit</button>
 </div>
 
 <footer>
