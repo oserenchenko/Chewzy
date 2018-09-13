@@ -1,0 +1,42 @@
+h1{
+    text-align:center;
+}
+
+.selectRestaurant{
+    background-color:rgba(0,0,0,0.4);
+    border:1px white solid;
+    padding:10px;
+    margin-top:20px;
+    margin-bottom:20px;
+    width:100%;
+    border-radius:10px;
+    cursor:pointer;
+    box-shadow: 3px 3px 2px black;
+    color:white;
+}
+
+.selectRestaurant:hover{
+    box-shadow: none;
+    border-color:orange;
+}
+
+.selectRestaurant:active{
+  background-color:rgba(0,0,0);
+}
+
+.name{
+    font-size:14px;
+    font-variant: small-caps;
+    letter-spacing:1px;
+    font-weight: bold;
+    color:white;
+
+}
+
+.cuisines{
+    color:orange;
+}
+
+.userRating{
+    color:orange;
+}

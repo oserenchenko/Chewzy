@@ -18,6 +18,13 @@
     z-index: -1;
 }
 
+.user{
+    color:white;
+    text-align:right;
+    padding-right:20px;
+    /* border:1px red solid; */
+}
+
 label {
     color: white;
     font-size: 14px;
@@ -136,12 +143,10 @@ select:focus {
     outline: 0;
 }
 
-#submit {
+
+
+.submit-survey {
     margin-top: 10px;
-}
-
-
-.button {
     margin-bottom: 5px;
     letter-spacing: 1px;
     display: block;
@@ -151,5 +156,22 @@ select:focus {
     border-radius: 5px;
     background-color: orange;
     color: white;
+    border:1px solid white;
+    transition:all .2s linear;
 }
 
+.submit-survey:focus{
+    outline:0;
+}
+
+.submit-survey:hover{
+    border-color:orange;
+    color:orange;
+    background-color:white;
+}
+
+.submit-survey:active{
+    border-color:white;
+    color:white;
+    background-color:rgba(0,0,0,0);
+}

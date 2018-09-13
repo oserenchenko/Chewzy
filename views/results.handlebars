@@ -1,15 +1,33 @@
-<h1>Restaurant Results</h1>
-<p class="user"> {{user.userEmail}} </p>
-<div class="allRes">
+
+<div id="wrap-all" id="home-img">
+ 
+     <div id="name-tag-wrap">
+               <p class="user"> {{user.userEmail}} </p>
+         <div id="app-name-border">
+            <h1 id="app-name"> CHEWZY </h1>
+          </div>
+          <p id="tag">  take a short quiz and find a new place to eat</p>
+      </div>
+
+    <div id="wrap-user-input">
+
+<div>
   {{#each restaurants}}
     <div class = "selectRestaurant" lat = {{this.lat}} lng = {{this.lng}}>
-      <h2 class = "name">{{this.name}}</h2>
-      <p class="cuisines">{{this.cuisines}}</p>
-      <p class="address">{{this.address}}</p>
-      <p class="userRating">{{this.userRating}}</p>
+      <div class = "name">{{this.name}}</div>
+      <div class="cuisines">{{this.cuisines}}</div>
+      <div class="address">{{this.address}}</div>
+      <p class="rating-wrap"> rating: <span class="userRating">{{this.userRating}}</span></p>
    
     </div>
   {{/each}}
+</div>
+</div>
+  <footer>
+    <div>
+        <p id="footer"> made by <a class="github-link" href="https://github.com/oserenchenko" targe="_blank">Olga</a> and <a  class="github-link"href="https://github.com/innaleikina" targe="_blank">Inna</a> using Zomato</p>
+    </div>
+</footer>
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
