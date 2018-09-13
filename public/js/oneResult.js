@@ -11,11 +11,12 @@ var priceLevel = "";
 var reviews;
 var website = "";
 var photoUrl = "";
-var userEmail = ""
+var userEmail;
 var oneResult;
+var user;
 
 //when a restaurant is selected
-$(document).on("click", ".selectRestaurant", function() {
+$(document).on("click", ".selectRestaurant", function () {
   name = $(this)
     .children(".name")
     .text();
@@ -28,7 +29,7 @@ $(document).on("click", ".selectRestaurant", function() {
   userRating = $(this)
     .children(".userRating")
     .text();
-    userEmail = $(".user").text();
+  userEmail = $(".user").text().trim();
   lat = $(this).attr("lat");
   lng = $(this).attr("lng");
 
@@ -43,7 +44,7 @@ $(document).on("click", ".selectRestaurant", function() {
   $.ajax({
     url: googleUrl,
     method: "GET"
-  }).then(function(response) {
+  }).then(function (response) {
     // console.log(response);
     var restaurantID = response.candidates[0].place_id;
 
@@ -54,7 +55,7 @@ $(document).on("click", ".selectRestaurant", function() {
     $.ajax({
       url: detailsUrl,
       method: "GET"
-    }).then(function(response) {
+    }).then(function (response) {
       console.log(response);
       phoneNum = response.result.formatted_phone_number;
       photo = response.result.photos[0].photo_reference;
@@ -78,21 +79,26 @@ $(document).on("click", ".selectRestaurant", function() {
         priceLevel: priceLevel,
         reviews: reviews,
         website: website,
-        photoUrl: photoUrl,
+        photoUrl: photoUrl
+
+      };
+
+      user = {
         userEmail: userEmail
       };
+
       console.log(oneResult);
 
       $.ajax("/one_result", {
         type: "POST",
         data: {
-          data: oneResult
+          data: oneResult,
+          user: user
         }
-      }).then(function() {
+      }).then(function () {
         console.log("adding one restaurant");
         window.location.href = "/one_result";
       });
     });
   });
 });
-

@@ -12,6 +12,16 @@
   <div id="wrap-all" id="home-img">
 
      <div id="name-tag-wrap">
+         {{#if user}}
+              <a href="/logout"><button class="big-button" id="logout-button">logout </button></a>
+               <a><button class="big-button"  id="favorites-button"> See Favorites </button></a>
+        {{else}}
+           <a href="/login"><button class="big-button" id="logout-button"> login/signup </button></a>
+        {{/if}}
+           
+             
+
+
             <p class="user">  {{user}}</p>
          <div id="app-name-border">
             <h1 id="app-name"> CHEWZY </h1>
@@ -34,7 +44,7 @@
 
       <div id="wrap-user-input">
       <div id="location">
-         <button class="submit-survey" id="useGeolocation">Use My Location</button>
+         <button class="big-button" id="useGeolocation">Use My Location</button>
           <label> or </label>
          <label> Choose the city where you want to eat </label>
          <div id="input-wrap">
@@ -45,7 +55,7 @@
       <div id="questions-container">
 
      </div>
-    <button email="{{user}}" class="submit-survey" id="submit">Submit</button>
+    <button email="{{user}}" class="big-button" id="submit">Submit</button>
 </div>
 
 <footer>
@@ -63,5 +73,6 @@
 <script src="/js/index.js"></script>
 <script src="/js/questions.js"></script>
 <script src="/js/userEmail.js"></script>
+<script src="/js/favorite.js"></script>
 </body>
 

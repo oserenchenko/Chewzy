@@ -7,6 +7,10 @@ var email;
 module.exports = function(app) {
   // Load index page
 
+  app.get("/home", function(req, res) {
+    res.render("home");
+  });
+
   app.get("/search_results", function(req, res) {
     res.render("results", {
       restaurants: restaurantData,
@@ -18,6 +22,7 @@ module.exports = function(app) {
   app.post("/search_results", function(req, res) {
     restaurantData = req.body.data;
     user = req.body.user;
+    console.log(user);
     // console.log(restaurantData);
     // console.log(user);
     res.json(req.body);
@@ -25,7 +30,8 @@ module.exports = function(app) {
 
   app.get("/one_result", function(req, res) {
     res.render("one_result", {
-      restaurant: oneRestaurant
+      restaurant: oneRestaurant,
+      user: user
     });
   });
 
@@ -33,7 +39,7 @@ module.exports = function(app) {
   app.post("/one_result", function(req, res) {
     oneRestaurant = req.body.data;
     user = req.body.user;
-    // console.log(oneRestaurant);
+    console.log(user);
     res.json(req.body);
   });
 

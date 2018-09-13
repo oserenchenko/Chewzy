@@ -1,0 +1,67 @@
+#one-result-address{
+    color:white;
+    margin-bottom:10px;
+    font-weight:lighter;
+}
+
+#one-result-name{
+    font-size:16px;
+ }
+
+#one-result-cuisine{
+   color:orange;
+   margin-bottom:10px;
+}
+
+.phoneNum{
+    color:orange;
+    /* font-weight:bold; */
+}
+
+.priceLevel{
+    color:white;
+}
+
+#favorite-website-wrap{
+    margin-top:30px;
+    display:flex;
+    width:100%;
+    padding:5px;
+    justify-content:space-between;
+}
+
+#favorite{
+    border-radius:10px;
+    padding:10px;
+    border:1px white solid;
+    background-color: rgba(0,0,0,0);
+    color:white;
+}
+
+.website{
+    color:orange;
+    text-decoration: underline;
+    padding:10px 0 10px 10px;
+}
+
+.photoUrl{
+    border-radius:10px;
+    margin-top:20px;
+   border:1px white solid;
+}
+
+#address-favorites{
+    color:white;
+    font-weight:lighter;
+}
+
+#favorites-phone{
+    color:orange;
+    margin-bottom:30px;
+}
+
+.one-fave-wrap{
+    padding:10px;
+    border-bottom:1px white solid;
+    border-top:1px white solid;
+}

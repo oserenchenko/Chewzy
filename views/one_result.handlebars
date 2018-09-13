@@ -1,18 +1,52 @@
-<div id="oneResult">
-
-   <p class="user">{{restaurant.userEmail}} </p>
 
 
+<div id="wrap-all" id="home-img">
+   
+   
+   <div id="name-tag-wrap">
+       {{#if user.userEmail}}
+          <a href="/logout"><button class="big-button" id="logout-button"> logout </button></a>
+          <a><button class="big-button"  id="favorites-button"> See Favorites </button></a>
+        {{else}}
+           <a href="/login"><button class="big-button" id="logout-button"> login/signup </button></a>
+        {{/if}}
+   
 
-  <p class="name">{{restaurant.name}}</p>
-  <p class="address">{{restaurant.address}}</p>
-  <p class="cuisine">{{restaurant.cuisines}}</p>
-  <p class="userRating">{{restaurant.userRating}}</p>
-  <p class="phoneNum">{{restaurant.phoneNum}}</p>
-  <p class="priceLevel">{{restaurant.priceLevel}}</p>
-  <a class="website" href = {{restaurant.website}} target="_blank">Website</a>
+         <p class="user">{{user.userEmail}} </p>
+         <div id="app-name-border">
+            <h1 id="app-name"> CHEWZY </h1>
+         </div>
+         <p id="tag">  take a short quiz and find a new place to eat</p>
+    </div>
+
+
+   <div id="wrap-user-input">
+  
+   <div class="name" id="one-result-name">{{restaurant.name}}</div>
+ 
+  <div class="cuisine" id="one-result-cuisine">{{restaurant.cuisines}}</div>
+   <div class="address" id="one-result-address">{{restaurant.address}}</div>
+  <div class="userRating">{{restaurant.userRating}}</div>
+  <div class="phoneNum">{{restaurant.phoneNum}}</div>
+  <div class="priceLevel"><span>price level: </span>{{restaurant.priceLevel}}</div>
+
   <img class="photoUrl" src = {{restaurant.photoUrl}}>
-  <button id="favorite">Favorites</button>
+
+  <div id="favorite-website-wrap">
+    {{#if user.userEmail}}
+      <button id="favorite"> add to favorites</button>
+    {{/if}}
+    <a href = {{restaurant.website}} target="_blank"> <div class="website"  >Website</div></a>
+  </div>
+</div>
+ 
+
+
+<footer>
+    <div>
+        <p id="footer"> made by <a class="github-link" href="https://github.com/oserenchenko" targe="_blank">Olga</a> and <a  class="github-link"href="https://github.com/innaleikina" targe="_blank">Inna</a> using Zomato</p>
+    </div>
+</footer>
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
