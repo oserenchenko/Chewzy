@@ -2,10 +2,10 @@ var db = require("../models");
 var restaurantData;
 var oneRestaurant;
 var user;
+var email;
 
 module.exports = function(app) {
   // Load index page
-
 
   app.get("/search_results", function(req, res) {
     res.render("results", {
@@ -18,15 +18,14 @@ module.exports = function(app) {
   app.post("/search_results", function(req, res) {
     restaurantData = req.body.data;
     user = req.body.user;
-    console.log(restaurantData);
-    console.log(user);
+    // console.log(restaurantData);
+    // console.log(user);
     res.json(req.body);
   });
 
   app.get("/one_result", function(req, res) {
     res.render("one_result", {
       restaurant: oneRestaurant
-
     });
   });
 
@@ -34,7 +33,7 @@ module.exports = function(app) {
   app.post("/one_result", function(req, res) {
     oneRestaurant = req.body.data;
     user = req.body.user;
-    console.log(oneRestaurant);
+    // console.log(oneRestaurant);
     res.json(req.body);
   });
 
@@ -42,6 +41,37 @@ module.exports = function(app) {
     res.render("user", {
       text: "UserName"
     });
+  });
+
+  app.get("/favorites", function(req, res) {
+    console.log("second");
+    console.log(email);
+    db.Favorite.findAll({
+      where: {
+        email: email
+      }
+    }).then(function(dbFavorite) {
+      console.log("third");
+      console.log(dbFavorite);
+      var favorites = [];
+      for (var i = 0; i < dbFavorite.length; i++) {
+        favorites.push(dbFavorite[i].dataValues);
+      }
+      console.log("FAVORITES ARRAY");
+      console.log(favorites);
+      // var favorites = dbFavorite[0].dataValues;
+      // console.log(favorites);
+
+      res.render("favorites", {
+        email: email,
+        results: favorites
+      });
+    });
+  });
+
+  app.post("/favorites", function(req, res) {
+    email = req.body.email;
+    res.json(req.body);
   });
 
   app.get("/signup", function(req, res) {

@@ -34,3 +34,19 @@ $("#favorite").on("click", function() {
     console.log("adding restaurant to favorites");
   });
 });
+
+$(document).on("click", ".user", function() {
+  var email = $(".user")
+    .text()
+    .trim();
+  console.log(email);
+  $.ajax("/favorites", {
+    type: "POST",
+    data: {
+      email: email
+    }
+  }).then(function() {
+    console.log("going to user favorites page");
+    window.location.href = "/favorites";
+  });
+});
