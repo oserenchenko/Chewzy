@@ -11,7 +11,9 @@ initMap = function() {
         lat: pos.lat,
         lng: pos.lng
       });
-      $("#useGeolocation").css("display", "block");
+      $(".useGeolocation")
+        .removeClass("useGeolocation")
+        .addClass("big-button");
     });
   } else {
     // Browser doesn't support Geolocation
@@ -22,10 +24,9 @@ initMap = function() {
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
   infoWindow.setContent(
-    browserHasGeolocation ?
-    "Error: The Geolocation service failed." :
-    "Error: Your browser doesn't support geolocation."
+    browserHasGeolocation
+      ? "Error: The Geolocation service failed."
+      : "Error: Your browser doesn't support geolocation."
   );
   infoWindow.open(map);
 }
-

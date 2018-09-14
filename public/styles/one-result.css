@@ -6,6 +6,7 @@
 
 #one-result-name{
     font-size:16px;
+    margin-top:25px;
  }
 
 #one-result-cuisine{
@@ -54,6 +55,7 @@
    max-width:100%;
    max-height:100%;
    border:1px white solid;
+   padding:2px;
 }
 
 

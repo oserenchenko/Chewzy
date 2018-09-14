@@ -13,6 +13,7 @@ html {
     /* border:1px black solid; */
     box-shadow: 3px 3px 3px black;
     background-color: white;
+
 }
 
 #app-name {
@@ -29,6 +30,7 @@ html {
     width: 300px;
     margin: 0 auto;
     padding: 30px auto;
+    /* border:1px red solid; */
 }
 
 #tag {

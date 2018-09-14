@@ -1,78 +1,87 @@
 <!Doctype html>
 <html>
+
 <head>
     <title> Home </title>
 
 
-  <link rel="stylesheet" href="/styles/home-style.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/styles/home-style.css" media="screen" title="no title" charset="utf-8">
 </head>
+
 <body>
 
 
-  <div id="wrap-all" id="home-img">
+    <div id="wrap-all" id="home-img">
 
-     <div id="name-tag-wrap">
-         {{#if user}}
-              <a href="/logout"><button class="big-button" id="logout-button">logout </button></a>
-               <a><button class="big-button"  id="favorites-button"> See Favorites </button></a>
-        {{else}}
-           <a href="/login"><button class="big-button" id="logout-button"> login/signup </button></a>
-        {{/if}}
+        <div id="name-tag-wrap">
+            {{#if user}}
+            <a href="/logout"><button class="big-button" id="logout-button">logout </button></a>
+            <a><button class="big-button" id="favorites-button"> See Favorites </button></a>
+            {{else}}
+            <a href="/login"><button class="big-button" id="logout-button"> login/signup </button></a>
+            {{/if}}
+
+            <p class="user"> {{user}}</p>
            
-             
+           
+            <div id="app-name-border">
+                {{!-- if user is signed in home button takes then to user, otherwise to home --}}
+                 {{#if user}}
+             <a href="/user"><i class="fas fa-home"></i></a>
+             {{else}}
+             <a href="/home"><i class="fas fa-home"></i></a>
+             {{/if}}
+                <h1 id="app-name"> CHEWZY </h1>
+            </div>
+            <p id="tag"> take a short quiz and find a new place to eat</p>
+            
+        </div>
 
+        <div id="category-drop-down">
+            <p id="directions-category"> Pick a restaurant category</p>
+            {{!-- <div class="custom-select"> --}}
+                <select id="category-select">
+                    <option value="cafe">Cafe</option>
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="dinner">Dinner</option>
+                    <option value="pubs/bars">Pubs/Bars</option>
+                </select>
+                {{!-- </div> --}}
+        </div>
 
-            <p class="user">  {{user}}</p>
-         <div id="app-name-border">
-            <h1 id="app-name"> CHEWZY </h1>
-          </div>
-          <p id="tag">  take a short quiz and find a new place to eat</p>
-      </div>
+        <div id="wrap-user-input">
+            <div id="location">
+                <button  class="useGeolocation" id="useGeolocation">Use My Location</button>
+                <label> or </label>
+                <label> Choose the city where you want to eat </label>
+                <div id="input-wrap">
+                    <input type="text" id="inputCity">
+                </div>
+            </div>
 
-<div id="category-drop-down">
-  <p id="directions-category"> Pick a restaurant category</p>
-   {{!-- <div class="custom-select"> --}}
-        <select id="category-select">
-           <option value="cafe">Cafe</option>
-           <option value="breakfast">Breakfast</option>
-           <option value="lunch">Lunch</option>
-           <option value="dinner">Dinner</option>
-           <option value="pubs/bars">Pubs/Bars</option>
-         </select>
-       {{!-- </div> --}}
-     </div>
+            <div id="questions-container">
 
-      <div id="wrap-user-input">
-      <div id="location">
-         <button class="big-button" id="useGeolocation">Use My Location</button>
-          <label> or </label>
-         <label> Choose the city where you want to eat </label>
-         <div id="input-wrap">
-         <input type="text" id="inputCity">
-         </div>
-      </div>
+            </div>
+            <button email="{{user}}" class="big-button" id="submit">Submit</button>
+        </div>
 
-      <div id="questions-container">
-
-     </div>
-    <button email="{{user}}" class="big-button" id="submit">Submit</button>
-</div>
-
-<footer>
-    <div>
-        <p id="footer"> made by <a class="github-link" href="https://github.com/oserenchenko" targe="_blank">Olga</a> and <a  class="github-link"href="https://github.com/innaleikina" targe="_blank">Inna</a> using Zomato</p>
+        <footer>
+            <div>
+                <p id="footer"> made by <a class="github-link" href="https://github.com/oserenchenko" targe="_blank">Olga</a>
+                    and <a class="github-link" href="https://github.com/innaleikina" targe="_blank">Inna</a> using
+                    Zomato</p>
+            </div>
+        </footer>
     </div>
-</footer>
-</div>
 
 
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2pDiGU9PjqQheeVvFvAefz7qgOCipwbA&libraries=places&callback=initMap"></script>
-<script src="/js/geolocate.js"></script>
-<script src="/js/index.js"></script>
-<script src="/js/questions.js"></script>
-<script src="/js/userEmail.js"></script>
-<script src="/js/favorite.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2pDiGU9PjqQheeVvFvAefz7qgOCipwbA&libraries=places&callback=initMap"></script>
+    <script src="/js/geolocate.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/questions.js"></script>
+    <script src="/js/userEmail.js"></script>
+    <script src="/js/favorite.js"></script>
 </body>
-
