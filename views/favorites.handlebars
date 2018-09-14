@@ -15,16 +15,18 @@
       </div>
 
       <div id="wrap-user-input" class="favorite-div">
-         
+          <h2 id="favorites-h1"> favorites </h2>
          {{#each results}}
+         
            <div class="one-fave-wrap">
            <div class="name">{{this.dataValues.name}}</div>
            <div id="favorites-cuisines">{{this.dataValues.cuisines}}</div>
            <div class="address" id="address-favorites">{{this.dataValues.address}}</div>
-           
-           <div>{{this.dataValues.userRating}}</div>
+           <div id="favorites-rating">   rating: <span id="favorites-rating-word">{{this.dataValues.userRating}}</span></div>
            <div id="favorites-phone">{{this.dataValues.phoneNum}}</div>
-           <img src={{this.dataValues.photoUrl}}>
+           <div class="image-wrap">
+             <img class="photoUrl" src={{this.dataValues.photoUrl}}>
+           </div>
            <p>{{this.dataValues.priceLevel}}</p>
            <a href = {{this.dataValues.website}} target="_blank">Website</a>
            </div>

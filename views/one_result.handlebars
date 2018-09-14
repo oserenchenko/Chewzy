@@ -29,8 +29,9 @@
   <div class="userRating">{{restaurant.userRating}}</div>
   <div class="phoneNum">{{restaurant.phoneNum}}</div>
   <div class="priceLevel"><span>price level: </span>{{restaurant.priceLevel}}</div>
-
-  <img class="photoUrl" src = {{restaurant.photoUrl}}>
+  <div class="image-wrap">
+    <img class="photoUrl" src = {{restaurant.photoUrl}}>
+  </div>
 
   <div id="favorite-website-wrap">
     {{#if user.userEmail}}
