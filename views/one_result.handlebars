@@ -13,6 +13,12 @@
    
 
          <p class="user">{{user.userEmail}} </p>
+          {{!-- if user is signed in home button takes then to user, otherwise to home --}}
+                 {{#if user}}
+             <a href="/user"><i class="fas fa-home"></i></a>
+             {{else}}
+             <a href="/home"><i class="fas fa-home"></i></a>
+             {{/if}}
          <div id="app-name-border">
             <h1 id="app-name"> CHEWZY </h1>
          </div>
@@ -30,7 +36,7 @@
   <div class="phoneNum">{{restaurant.phoneNum}}</div>
   <div class="priceLevel"><span>price level: </span>{{restaurant.priceLevel}}</div>
   <div class="image-wrap">
-    <img class="photoUrl" src = {{restaurant.photoUrl}}>
+     <img class="photoUrl" src={{restaurant.photoUrl}}>
   </div>
 
   <div id="favorite-website-wrap">

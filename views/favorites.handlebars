@@ -1,47 +1,60 @@
 <div id="wrap-all" id="home-img">
 
-      <div id="name-tag-wrap">
-        {{#if email}}
-          <a href="/logout"><button class="big-button" id="logout-button"> logout </button></a>
-          <a><button class="big-button"  id="favorites-button"> See Favorites </button></a>
-        {{else}}
-           <a href="/login"><button class="big-button" id="logout-button"> login/signup </button></a>
-        {{/if}}
-         <p class="user"> {{email}}</p>
-         <div id="app-name-border">
-            <h1 id="app-name"> CHEWZY </h1>
-          </div>
-          <p id="tag">  take a short quiz and find a new place to eat</p>
-      </div>
-
-      <div id="wrap-user-input" class="favorite-div">
-          <h2 id="favorites-h1"> favorites </h2>
-         {{#each results}}
-         
-           <div class="one-fave-wrap">
-           <div class="name">{{this.dataValues.name}}</div>
-           <div id="favorites-cuisines">{{this.dataValues.cuisines}}</div>
-           <div class="address" id="address-favorites">{{this.dataValues.address}}</div>
-           <div id="favorites-rating">   rating: <span id="favorites-rating-word">{{this.dataValues.userRating}}</span></div>
-           <div id="favorites-phone">{{this.dataValues.phoneNum}}</div>
-           <div class="image-wrap">
-             <img class="photoUrl" src={{this.dataValues.photoUrl}}>
-           </div>
-           <p>{{this.dataValues.priceLevel}}</p>
-           <a href = {{this.dataValues.website}} target="_blank">Website</a>
-           </div>
-          {{/each}}
-          </div>
-
-
- <footer>
-    <div>
-        <p id="footer"> made by <a class="github-link" href="https://github.com/oserenchenko" targe="_blank">Olga</a> and <a  class="github-link"href="https://github.com/innaleikina" targe="_blank">Inna</a> using Zomato</p>
+  <div id="name-tag-wrap">
+    {{#if email}}
+    <a href="/logout"><button class="big-button" id="logout-button"> logout </button></a>
+    <a><button class="big-button" id="favorites-button"> See Favorites </button></a>
+    {{else}}
+    <a href="/login"><button class="big-button" id="logout-button"> login/signup </button></a>
+    {{/if}}
+   
+    <p class="user"> {{email}}</p>
+    <div id="app-name-border">
+       {{!-- if user is signed in home button takes then to user, otherwise to home --}}
+                 {{#if user}}
+             <a href="/user"><i class="fas fa-home"></i></a>
+             {{else}}
+             <a href="/home"><i class="fas fa-home"></i></a>
+             {{/if}}
+      <h1 id="app-name"> CHEWZY </h1>
     </div>
-</footer>
+    <p id="tag"> take a short quiz and find a new place to eat</p>
+  </div>
+
+  <div id="wrap-user-input" class="favorite-div">
+    <h2 id="favorites-h1"><span id="favorites-user-email"> {{email}}'s</span> favorites </h2>
+    {{#each results}}
+
+    <div class="one-fave-wrap">
+      <div id="website-name-wrap">
+        <div class="name" id="favorites-name">{{this.dataValues.name}}</div>
+        <a class="website" href={{this.dataValues.website}} target="_blank">Website</a>
+      </div>
+      
+      <div id="favorites-cuisines">{{this.dataValues.cuisines}}</div>
+      <div class="address" id="address-favorites">{{this.dataValues.address}}</div>
+      <div id="favorites-rating"> rating: <span id="favorites-number">{{this.dataValues.userRating}}</span></div>
+      <div id="favorites-phone">{{this.dataValues.phoneNum}}</div>
+      <div id="favorites-price"> price level: <span id="favorites-number">{{this.dataValues.priceLevel}}</span></div>
+      
+      <div class="image-wrap">
+        <img class="photoUrl" src={{this.dataValues.photoUrl}}>
+      </div>
+      
+    </div>
+    {{/each}}
+  </div>
+
+
+  <footer>
+    <div>
+      <p id="footer"> made by <a class="github-link" href="https://github.com/oserenchenko" targe="_blank">Olga</a> and
+        <a class="github-link" href="https://github.com/innaleikina" targe="_blank">Inna</a> using Zomato</p>
+    </div>
+  </footer>
 </div>
 
 
-    
+
 
 </div>

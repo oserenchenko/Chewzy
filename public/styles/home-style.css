@@ -30,8 +30,25 @@ label {
     font-size: 14px;
 }
 
-#useGeolocation {
+.useGeolocation {
     margin-top: -40px;
+    border:1px gray solid;
+    color:gray;
+    box-shadow:none;
+    background-color:white;
+    /* margin-top: 10px; */
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    transition:all .2s linear;
+}
+
+.useGeolocation:focus{
+    outline:0;
 }
 
 #questions-container {
@@ -87,6 +104,7 @@ label {
     width: 350px;
     margin: 0 auto;
     padding: 25px;
+    padding-top:0px;
     margin-top: 20px;
     background-color: rgba(0, 0, 0, 0.6);
     margin-bottom: 20px;
@@ -215,4 +233,31 @@ select:focus {
 #favorites-button:active{
     border:none;
     background-color:rgba(0,0,0,0);
+}
+
+.fa-home{
+    color:orange;
+    text-align:center;
+    border:1px orange solid;
+    margin:0 auto;
+    display:block !important;
+    width:40px;
+    padding:5px;
+    border-radius:5px;
+    box-shadow:1px 1px 1px rgba(0,0,0,0.4);
+    text-align:center !important;
+    margin-top:-30px;
+    font-size:20px;
+    transition:all .2s linear;
+}
+
+.fa-home:hover{
+    text-decoration:none;
+    text-decoration-color:white;
+    background-color:orange;
+    color:white;
+}
+
+.fa-home:active{
+    box-shadow:none;
 }

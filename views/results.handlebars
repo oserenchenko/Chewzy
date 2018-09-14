@@ -3,14 +3,22 @@
  
      <div id="name-tag-wrap">
         
-{{#if user.userEmail}}
+       {{#if user.userEmail}}
           <a href="/logout"><button class="big-button" id="logout-button"> logout </button></a>
           <a><button class="big-button"  id="favorites-button"> See Favorites </button></a>
         {{else}}
            <a href="/login"><button class="big-button" id="logout-button"> login/signup </button></a>
         {{/if}}
+
          <p class="user"> {{user.userEmail}} </p>
+         
          <div id="app-name-border">
+            {{!-- if user is signed in home button takes then to user, otherwise to home --}}
+                 {{#if user}}
+             <a href="/user"><i class="fas fa-home"></i></a>
+             {{else}}
+             <a href="/home"><i class="fas fa-home"></i></a>
+             {{/if}}
             <h1 id="app-name"> CHEWZY </h1>
           </div>
           <p id="tag">  take a short quiz and find a new place to eat</p>
