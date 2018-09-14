@@ -15,6 +15,7 @@
     "logging": false
   },
   "production": {
+    "host": "https://sleepy-sierra-59381.herokuapp.com/",
     "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
   }

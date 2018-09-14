@@ -20,7 +20,7 @@ router.get('/login', passport.authenticate('auth0', {
 
 router.get('/logout', function (req, res) {
     req.logout();
-    res.redirect("https://chewzy.auth0.com/v2/logout/?returnTo=http://localhost:3000/");
+    res.redirect("https://chewzy.auth0.com/v2/logout/?returnTo=http://https://sleepy-sierra-59381.herokuapp.com/");
 
 });
 
