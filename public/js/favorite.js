@@ -29,7 +29,7 @@ $("#favorite").on("click", function() {
     type: "POST",
     data: restaurant
   }).then(function() {
-    console.log("adding restaurant to favorites");
+    alert("adding restaurant to favorites");
   });
 });
 
