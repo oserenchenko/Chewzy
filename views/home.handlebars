@@ -38,18 +38,20 @@
             
         </div>
 
-        <div id="category-drop-down">
-            <p id="directions-category"> Pick a restaurant category</p>
-            {{!-- <div class="custom-select"> --}}
-                <select id="category-select">
-                    <option value="cafe">Cafe</option>
-                    <option value="breakfast">Breakfast</option>
-                    <option value="lunch">Lunch</option>
-                    <option value="dinner">Dinner</option>
-                    <option value="pubs/bars">Pubs/Bars</option>
-                </select>
-                {{!-- </div> --}}
-        </div>
+<div id="category-drop-down">
+  <p id="directions-category"> Pick a restaurant category</p>
+   {{!-- <div class="custom-select"> --}}
+        <select id="category-select">
+          <option value="0">Select</option>
+           <option value="6">Cafe</option>
+           <option value="8">Breakfast</option>
+           <option value="9">Lunch</option>
+           <option value="10">Dinner</option>
+           <option value="11">Pubs/Bars</option>
+         </select>
+       {{!-- </div> --}}
+     </div>
+
 
         <div id="wrap-user-input">
             <div id="location">
@@ -69,60 +71,15 @@
 
         <footer>
             <div>
-                <p id="footer"> made by <a class="github-link" href="https://github.com/oserenchenko" targe="_blank">Olga</a>
+                <p id="footer"> made by<a class="github-link" href="https://github.com/oserenchenko" targe="_blank">Olga</a>
                     and <a class="github-link" href="https://github.com/innaleikina" targe="_blank">Inna</a> using
                     Zomato</p>
             </div>
         </footer>
-             
+           </div>  
 
 
-            <p class="user">  {{user}}</p>
-         <div id="app-name-border">
-            <h1 id="app-name"> CHEWZY </h1>
-          </div>
-          <p id="tag">  take a short quiz and find a new place to eat</p>
-      </div>
-
-<div id="category-drop-down">
-  <p id="directions-category"> Pick a restaurant category</p>
-   {{!-- <div class="custom-select"> --}}
-        <select id="category-select">
-          <option value="0">Select</option>
-           <option value="6">Cafe</option>
-           <option value="8">Breakfast</option>
-           <option value="9">Lunch</option>
-           <option value="10">Dinner</option>
-           <option value="11">Pubs/Bars</option>
-         </select>
-       {{!-- </div> --}}
-     </div>
-
-      <div id="wrap-user-input">
-      <div id="location">
-         <button class="big-button" id="useGeolocation">Use My Location</button>
-          <label> or </label>
-         <label> Choose the city where you want to eat </label>
-         <div id="input-wrap">
-         <input type="text" id="inputCity">
-         </div>
-      </div>
-
-      <div id="questions-container">
-
-     </div>
-    <button email="{{user}}" class="big-button" id="submit">Submit</button>
-</div>
-
-<footer>
-    <div>
-        <p id="footer"> made by <a class="github-link" href="https://github.com/oserenchenko" targe="_blank">Olga</a> and <a  class="github-link"href="https://github.com/innaleikina" targe="_blank">Inna</a> using Zomato</p>
-
-    </div>
-
-
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2pDiGU9PjqQheeVvFvAefz7qgOCipwbA&libraries=places&callback=initMap"></script>
     <script src="/js/geolocate.js"></script>
     <script src="/js/index.js"></script>
