@@ -1,4 +1,4 @@
-require("dotenv").config();
+// require("dotenv").config();
 
 const express = require('express');
 const path = require('path');
@@ -20,7 +20,7 @@ const user = require('./routes/user');
 
 var PORT = process.env.PORT || 3000;
 var syncOptions = { force: false };
-console.log(process.env.AUTH0_ID)
+console.log(process.env.AUTH0_ID);
 // This will configure Passport to use Auth0
 const strategy = new Auth0Strategy(
   {
