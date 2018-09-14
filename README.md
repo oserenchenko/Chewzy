@@ -6,6 +6,15 @@ Users can use the app without signing up/logging in, or sign in and get access t
 
 Visit the deployed version of [Chewzy](https://sleepy-sierra-59381.herokuapp.com/)
 
+Checkout the full version of the app with these credentials:
+```
+email: test@test.com
+```
+```
+password: ChewzyTest1!
+```
+
+
 ![homepage](chewzy.png)
 
 ## Getting Started
