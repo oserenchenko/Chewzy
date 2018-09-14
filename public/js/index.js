@@ -33,7 +33,9 @@ function pickingCuisines() {
       largestNumber = surveyAnsArr[arrayIndex];
     }
   }
+
   var groupLargestVal = surveyAnsArr.indexOf(largestNumber) + 1;
+ 
   if (groupLargestVal === 1) {
     cuisines = group1Cuisines;
   } else if (groupLargestVal === 2) {
@@ -92,6 +94,8 @@ function restaurantPush(responseArr) {
 
 //zomato api call function
 function zomatoCall(latitude, longitude, start) {
+  console.log("category", category);
+  console.log("cuisines", cuisines);
   var url =
     "https://developers.zomato.com/api/v2.1/search?apikey=" +
     zomatoKey +
@@ -127,9 +131,7 @@ function zomatoCall(latitude, longitude, start) {
     } else if (numCall === 1) {
       var responseArr = response.restaurants;
       console.log(responseArr);
-      restaurantPush(responseArr, function () {
-        window.location.href = "/search_results";
-      });
+      restaurantPush(responseArr);
     }
   });
 }
@@ -163,16 +165,20 @@ $("#submit").on("click", function () {
   event.preventDefault();
   pickingCuisines();
   if (userLat > 0 && userLng < 0) {
-    if ($("#selectCategory").val() === "0" || $("#inputCity").val() === " ") {
-      console.log("Please select a category");
+    if ($("#category-select").val() === "0") {
+      category = "";
+      console.log(category);
+      zomatoCall(userLat, userLng, start);
+      numCall = 0;
+      start = 0;
     } else {
-      category = $("#selectCategory").val();
+      category = $("#category-select").val();
+      console.log(category);
       zomatoCall(userLat, userLng, start);
       numCall = 0;
       start = 0;
     }
   } else {
     alert("Please select a location.");
-    category = "";
   }
 });

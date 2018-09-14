@@ -8,12 +8,27 @@ var userRating = "";
 var phoneNum = "";
 var photo = "";
 var priceLevel = "";
+var priceDollar;
 var reviews;
 var website = "";
 var photoUrl = "";
 var userEmail;
 var oneResult;
 var user;
+
+function priceSign(priceNum) {
+  if (priceNum === 1) {
+    priceDollar = "$";
+  } else if (priceNum === 2) {
+    priceDollar = "$$";
+  } else if (priceNum === 3) {
+    priceDollar = "$$$";
+  } else if (priceNum === 4) {
+    priceDollar = "$$$$";
+  } else {
+    priceDollar = "";
+  }
+}
 
 //when a restaurant is selected
 $(document).on("click", ".selectRestaurant", function() {
@@ -29,7 +44,9 @@ $(document).on("click", ".selectRestaurant", function() {
   userRating = $(this)
     .children(".userRating")
     .text();
-  userEmail = $(".user").text().trim();
+  userEmail = $(".user")
+    .text()
+    .trim();
   lat = $(this).attr("lat");
   lng = $(this).attr("lng");
 
@@ -60,6 +77,8 @@ $(document).on("click", ".selectRestaurant", function() {
       phoneNum = response.result.formatted_phone_number;
       photo = response.result.photos[0].photo_reference;
       priceLevel = response.result.price_level;
+      priceSign(priceLevel);
+      console.log(priceDollar);
       reviews = response.result.reviews;
       website = response.result.website;
 
@@ -76,7 +95,7 @@ $(document).on("click", ".selectRestaurant", function() {
         cuisines: cuisines,
         userRating: userRating,
         phoneNum: phoneNum,
-        priceLevel: priceLevel,
+        priceLevel: priceDollar,
         reviews: reviews,
         website: website,
         photoUrl: photoUrl
@@ -92,7 +111,7 @@ $(document).on("click", ".selectRestaurant", function() {
           data: oneResult,
           user: user
         }
-      }).then(function () {
+      }).then(function() {
         console.log("adding one restaurant");
         window.location.href = "/one_result";
       });
