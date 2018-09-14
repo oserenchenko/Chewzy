@@ -4,6 +4,8 @@ Chewzy is a website that simplifies a complicated question of "where should we e
 We are hoping to help our users narrow down an answer in less than 5 minutes by taking a simple quiz.
 Users can use the app without signing up/logging in, or sign in and get access to favorites feature.
 
+Visit the deployed version of [Chewzy](https://sleepy-sierra-59381.herokuapp.com/)
+
 ![homepage](chewzy.png)
 
 ## Getting Started
