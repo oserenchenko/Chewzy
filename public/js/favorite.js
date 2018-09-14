@@ -1,13 +1,13 @@
 //restaurant variables
-var name = "";
-var address = "";
-var cuisines = "";
-var userRating = "";
-var phoneNum = "";
-var priceLevel = "";
-// var reviews;
-var website = "";
-var photoUrl = "";
+// var name = "";
+// var address = "";
+// var cuisines = "";
+// var userRating = "";
+// var phoneNum = "";
+// var priceLevel = "";
+// var reviews = [];
+// var website = "";
+// var photoUrl = "";
 var restaurant;
 
 $("#favorite").on("click", function() {
@@ -18,14 +18,12 @@ $("#favorite").on("click", function() {
     userRating: $(".userRating ").text(),
     phoneNum: $(".phoneNum").text(),
     priceLevel: $(".priceLevel").text(),
-    website: $(".website").text(),
+    website: $(".website").attr("href"),
     photoUrl: $(".photoUrl").attr("src"),
     email: $(".user")
       .text()
       .trim()
   };
-  console.log($(".user").text());
-  console.log(restaurant);
 
   $.ajax("/api/favorite", {
     type: "POST",
