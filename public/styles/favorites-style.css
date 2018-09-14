@@ -1,0 +1,33 @@
+#address-favorites{
+    color:white;
+    font-weight:lighter;
+}
+
+#favorites-phone{
+    color:orange;
+    margin-bottom:30px;
+}
+
+.one-fave-wrap{
+    padding:10px;
+    border-bottom:1px white solid;
+    border-top:1px white solid;
+}
+
+#favorites-h1{
+    font-variant: small-caps;
+    color:white;
+    font-weight:lighter;
+    letter-spacing:1px;
+    margin-bottom:20px;
+}
+
+#favorites-rating{
+    color:white;
+    font-weight:lighter;
+}
+
+#favorites-rating-word{
+    color:white;
+    font-weight:bold;
+}
