@@ -32,7 +32,7 @@
       <div class = "name">{{this.name}}</div>
       <div class="cuisines">{{this.cuisines}}</div>
       <div class="address">{{this.address}}</div>
-      <p class="rating-wrap"> rating: <span class="userRating">{{this.userRating}}</span></p>
+      <p class="rating-wrap" rating={{this.userRating}}> rating: <span class="userRating">{{this.userRating}}</span></p>
    
     </div>
   {{/each}}
@@ -44,6 +44,8 @@
     </div>
 </footer>
 </div>
+
+<div id="map"></div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2pDiGU9PjqQheeVvFvAefz7qgOCipwbA&libraries=places"></script>
