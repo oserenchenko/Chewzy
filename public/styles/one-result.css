@@ -45,6 +45,10 @@
     padding:10px 0 10px 10px;
 }
 
+.website:hover{
+    color:white;
+}
+
 .photoUrl{
     border-radius:10px;
     margin-top:20px;

@@ -141,6 +141,9 @@ app.use(function(err, req, res, next) {
   });
 });
 
+app.get('/ping', function (req, res) {
+  return res.send('pong');
+ });
 
 db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {
