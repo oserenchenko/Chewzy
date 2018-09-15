@@ -109,6 +109,7 @@ function callback(results, status) {
   }
 }
 
+
 //when a restaurant is selected
 $(document).on("click", ".selectRestaurant", function() {
   name = $(this)
@@ -126,8 +127,6 @@ $(document).on("click", ".selectRestaurant", function() {
   userEmail = $(".user")
     .text()
     .trim();
-  lat = parseFloat($(this).attr("lat"));
-  lng = parseFloat($(this).attr("lng"));
 
   initMap();
 });
