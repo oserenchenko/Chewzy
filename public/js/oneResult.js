@@ -99,7 +99,7 @@ function callback(results, status) {
               data: oneResult,
               user: user
             }
-          }).then(function() {
+          }).then(function () {
             console.log("adding one restaurant");
             window.location.href = "/one_result";
           });
@@ -111,7 +111,7 @@ function callback(results, status) {
 
 
 //when a restaurant is selected
-$(document).on("click", ".selectRestaurant", function() {
+$(document).on("click", ".selectRestaurant", function () {
   name = $(this)
     .children(".name")
     .text();
@@ -127,6 +127,8 @@ $(document).on("click", ".selectRestaurant", function() {
   userEmail = $(".user")
     .text()
     .trim();
+  lat = parseFloat($(this).attr("lat"));
+  lng = parseFloat($(this).attr("lng"));
 
   initMap();
 });
