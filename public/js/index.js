@@ -87,7 +87,7 @@ function restaurantPush(responseArr) {
     }
   }).then(function () {
     console.log("adding new restaurant");
-    window.location.href = "/search_results";
+    // window.location.href = "/search_results";
   });
 
 }
@@ -113,6 +113,7 @@ function zomatoCall(latitude, longitude, start) {
     "&cuisines=" +
     cuisines;
 
+    console.log("url", url);
   $.ajax({
     url: url,
     method: "GET"
@@ -167,13 +168,13 @@ $("#submit").on("click", function () {
   if (userLat > 0 && userLng < 0) {
     if ($("#category-select").val() === "0") {
       category = "";
-      console.log(category);
+      console.log("category", category);
       zomatoCall(userLat, userLng, start);
       numCall = 0;
       start = 0;
     } else {
       category = $("#category-select").val();
-      console.log(category);
+      console.log("category", category);
       zomatoCall(userLat, userLng, start);
       numCall = 0;
       start = 0;
