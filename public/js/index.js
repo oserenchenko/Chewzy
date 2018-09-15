@@ -37,15 +37,15 @@ function pickingCuisines() {
   var groupLargestVal = surveyAnsArr.indexOf(largestNumber) + 1;
  
   if (groupLargestVal === 1) {
-    cuisines = group1Cuisines;
+    cuisines = group1Cuisines.replace(/ /g,"%20");
   } else if (groupLargestVal === 2) {
-    cuisines = group2Cuisines;
+    cuisines = group2Cuisines.replace(/ /g,"%20");
   } else if (groupLargestVal === 3) {
-    cuisines = group3Cuisines;
+    cuisines = group3Cuisines.replace(/ /g,"%20");
   } else if (groupLargestVal === 4) {
-    cuisines = group4Cuisines;
+    cuisines = group4Cuisines.replace(/ /g,"%20");
   } else if (groupLargestVal === 5) {
-    cuisines = group5Cuisines;
+    cuisines = group5Cuisines.replace(/ /g,"%20");
   } else {
     cuisines = "";
   }
@@ -56,7 +56,6 @@ function pickingCuisines() {
 function restaurantPush(responseArr) {
 
   const restArr = [];
-
 
   for (var i = 0; i < responseArr.length; i++) {
     var restaurant = responseArr[i].restaurant;
@@ -71,8 +70,6 @@ function restaurantPush(responseArr) {
     };
     restArr.push(newRestaurant);
   }
-
-  console.log(restArr);
 
   var user = {
     userEmail: $("#submit").attr("email")
@@ -94,8 +91,6 @@ function restaurantPush(responseArr) {
 
 //zomato api call function
 function zomatoCall(latitude, longitude, start) {
-  console.log("category", category);
-  console.log("cuisines", cuisines);
   var url =
     "https://developers.zomato.com/api/v2.1/search?apikey=" +
     zomatoKey +
@@ -131,7 +126,6 @@ function zomatoCall(latitude, longitude, start) {
       }
     } else if (numCall === 1) {
       var responseArr = response.restaurants;
-      console.log(responseArr);
       restaurantPush(responseArr);
     }
   });
@@ -168,13 +162,11 @@ $("#submit").on("click", function () {
   if (userLat > 0 && userLng < 0) {
     if ($("#category-select").val() === "0") {
       category = "";
-      console.log("category", category);
       zomatoCall(userLat, userLng, start);
       numCall = 0;
       start = 0;
     } else {
       category = $("#category-select").val();
-      console.log("category", category);
       zomatoCall(userLat, userLng, start);
       numCall = 0;
       start = 0;

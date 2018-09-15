@@ -1,13 +1,3 @@
-//restaurant variables
-// var name = "";
-// var address = "";
-// var cuisines = "";
-// var userRating = "";
-// var phoneNum = "";
-// var priceLevel = "";
-// var reviews = [];
-// var website = "";
-// var photoUrl = "";
 var restaurant;
 
 $("#favorite").on("click", function() {
@@ -34,11 +24,9 @@ $("#favorite").on("click", function() {
 });
 
 $(document).on("click", "#favorites-button", function() {
-  console.log(email);
   var email = $(".user")
     .text()
     .trim();
-  console.log(email);
   $.ajax("/favorites", {
     type: "POST",
     data: {
