@@ -84,7 +84,7 @@ function restaurantPush(responseArr) {
     }
   }).then(function () {
     console.log("adding new restaurant");
-    window.location.href = "/search_results";
+    // window.location.href = "/search_results";
   });
 
 }
@@ -108,6 +108,7 @@ function zomatoCall(latitude, longitude, start) {
     "&cuisines=" +
     cuisines;
 
+    console.log("url", url);
   $.ajax({
     url: url,
     method: "GET"
