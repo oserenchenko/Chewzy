@@ -15,7 +15,7 @@ router.get('/login', passport.authenticate('auth0', {
         scope: 'openid email profile'
     }),
     function (req, res) {
-        res.redirect("/");
+        res.redirect("/user");
     });
 
 router.get('/logout', function (req, res) {

@@ -30,6 +30,7 @@ function priceSign(priceNum) {
   }
 }
 
+
 //when a restaurant is selected
 $(document).on("click", ".selectRestaurant", function() {
   name = $(this)
@@ -49,6 +50,7 @@ $(document).on("click", ".selectRestaurant", function() {
     .trim();
   lat = $(this).attr("lat");
   lng = $(this).attr("lng");
+
 
   var googleUrl =
     "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?key=AIzaSyA2pDiGU9PjqQheeVvFvAefz7qgOCipwbA&fields=name,formatted_address,place_id&input=" +
@@ -71,7 +73,7 @@ $(document).on("click", ".selectRestaurant", function() {
 
     $.ajax({
       url: detailsUrl,
-      method: "GET"
+      method: "GET",
     }).then(function(response) {
       console.log(response);
       phoneNum = response.result.formatted_phone_number;
