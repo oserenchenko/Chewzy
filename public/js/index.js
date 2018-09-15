@@ -84,7 +84,7 @@ function restaurantPush(responseArr) {
     }
   }).then(function () {
     console.log("adding new restaurant");
-    // window.location.href = "/search_results";
+    window.location.href = "/search_results";
   });
 
 }
