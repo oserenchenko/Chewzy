@@ -1,10 +1,20 @@
-# CHEWZY
+## CHEWZY
 
 Chewzy is a website that simplifies a complicated question of "where should we eat tonight?"
 We are hoping to help our users narrow down an answer in less than 5 minutes by taking a simple quiz.
-Users can use the app without signing up/logging in, or sign in and get access to favorites feature.
+______________
+______________
+Users can use the app without signing up/logging in, or sign in and get access to favorites feature. After the welcome screen users are redirected to a 5 question quiz. After filling out the answers users recieve five results. They can click on a result to see more details about a restaurant, such as an image, price level and website. From that screen they can add a restuarant to their favorites. They can access a complete list of their favorites from any page on the website by clicking a button.
 
-Visit the deployed version of [Chewzy](https://sleepy-sierra-59381.herokuapp.com/)
+
+
+______________
+______________
+______________
+##
+Visit the deployed version of Chewzy
+##
+[Chewzy](https://sleepy-sierra-59381.herokuapp.com/)
 
 Checkout the full version of the app with these credentials:
 ```
@@ -14,8 +24,18 @@ email: test@test.com
 password: ChewzyTest1!
 ```
 
+##  
+********
+
+______________
+______________
+______________
 
 ![homepage](chewzy.png)
+
+______________
+______________
+______________
 
 ## Getting Started
 to install locally run this command in your terminal
@@ -57,6 +77,9 @@ node server.js
 * [MySql](https://www.mysql.com)
 
 
+______________
+______________
+______________
 ## Built With
 
 * [Expressjs](https://expressjs.com/) - nodejs server side framework
@@ -64,13 +87,17 @@ node server.js
 * [Auth0](https://auth0.com) - universal authentication & authorization platform for web, mobile, and legacy applications.
 * [Sequelize](http://docs.sequelizejs.com) - romise-based ORM for Node.js v4 and up.
 
-
+______________
+______________
+______________
 ## Authors
 
 * [Olga Serenchenko](https://github.com/oserenchenko)
 * [Inna Leikina](https://github.com/innaleikina)
 
+______________
+______________
+______________
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
