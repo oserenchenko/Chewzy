@@ -65,7 +65,7 @@ html {
     flex-direction: column;
     margin: auto;
     /* border:1px red solid; */
-    width: 100%;
+    width: 90%;
 }
 
 #btn-wrap-position {
@@ -155,7 +155,7 @@ html {
     display: grid;
     grid-template-columns: auto auto auto;
     height: 400px;
-    width: 100%;
+    width: 90%;
     /* padding:25px; */
     margin: 0 auto;
     margin-top: 50px;
