@@ -41,7 +41,7 @@ html {
 }
 
 #btns-wrap {
-    width: 400px;
+    width: 98%;
     height: 100vh;
     /* border: 1px rgba(0, 0, 0, 0) solid; */
     background-color: rgba(0, 0, 0, 0.5);
