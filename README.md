@@ -17,13 +17,14 @@ email: test@test.com
 ```
 password: ChewzyTest1!
 ```
-##  
+
+
 ______________
 ______________
 ______________
 
-![homepage](chewzy.png)
-![homepage](test.gif)
+![homepage](app_walkthrough.mp4)
+
 
 ______________
 ______________
