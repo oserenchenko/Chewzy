@@ -14,7 +14,7 @@
          
          <div id="app-name-border">
             {{!-- if user is signed in home button takes then to user, otherwise to home --}}
-                 {{#if user}}
+                 {{#if user.userEmail}}
              <a href="/user"><i class="fas fa-home"></i></a>
              {{else}}
              <a href="/home"><i class="fas fa-home"></i></a>
@@ -48,7 +48,7 @@
 <div id="map"></div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2pDiGU9PjqQheeVvFvAefz7qgOCipwbA&libraries=places"></script>
 <script src="/js/index.js"></script>
 <script src="/js/oneResult.js"></script>
 <script src="/js/userEmail.js"></script>

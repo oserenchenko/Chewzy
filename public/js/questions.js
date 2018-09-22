@@ -1,3 +1,4 @@
+//questions are separated by group to diferentiate between different categories, such as "healthy, cofort etc.."
 var group1 = [
   {
     question1: "You enjoy traveling to new, exotic countries.",
@@ -100,7 +101,7 @@ function randomizeQuestions() {
   //decalare an array to store random questions one from each group
   var questionsArr = [];
 
-  //console logs the questions
+
   function displayQuestions() {
     for (var i = 1; i < 6; i++) {
       getRandomNumber();

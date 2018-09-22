@@ -40,9 +40,10 @@ html {
     margin-top: -20px;
 }
 
+
 #btns-wrap {
-    width: 400px;
-    height: 80vh;
+    width: 380px;
+    height: 100vh;
     /* border: 1px rgba(0, 0, 0, 0) solid; */
     background-color: rgba(0, 0, 0, 0.5);
     background-position: center;
@@ -50,8 +51,8 @@ html {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    justify-items: center;
+    /* justify-content: center;
+    justify-items: center; */
     align-content: center;
     align-items: center;
     padding-bottom: 40px;
@@ -60,12 +61,18 @@ html {
     /* border:1px red solid; */
 }
 
+@media only screen and (max-width: 470px) {
+    #btns-wrap {
+        width: 98%;
+    }
+}
+
 #btn-wrap-color {
     display: flex;
     flex-direction: column;
     margin: auto;
     /* border:1px red solid; */
-    width: 100%;
+    width: 90%;
 }
 
 #btn-wrap-position {
@@ -107,7 +114,7 @@ html {
     background-color: orange;
     /* border:1px red solid; */
     margin-top: 10px;
-    margin-bottom:20px
+    /* margin-bottom:20px */
 }
 
 .btns-style-skip {
@@ -119,17 +126,17 @@ html {
     box-shadow: none;
     margin: 0 auto;
     display: block;
-    margin-top: 30px;
+    margin-top: 20px;
     padding: 10px;
     /* border: 1px orange solid; */
     border-radius: 5px;
 }
 
 #skip {
- 
+
     border-bottom: 1px orange solid;
     color: orange;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .btns-style:focus {
@@ -141,7 +148,7 @@ html {
 }
 
 #skip:hover {
-    color:white;
+    color: white;
 }
 
 .btns-style:hover {
@@ -154,8 +161,8 @@ html {
 .grid-container {
     display: grid;
     grid-template-columns: auto auto auto;
-    height: 350px;
-    width: 100%;
+    height: 400px;
+    width: 90%;
     /* padding:25px; */
     margin: 0 auto;
     margin-top: 50px;
