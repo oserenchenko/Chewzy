@@ -18,13 +18,7 @@ email: test@test.com
 password: ChewzyTest1!
 ```
 
-
-______________
-______________
-______________
-
-![homepage](app_walkthrough.mp4)
-
+![homepage](chewzy_video.gif)
 
 ______________
 ______________
