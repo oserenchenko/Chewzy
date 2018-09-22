@@ -11,6 +11,7 @@ router.get('/', function (req, res, next) {
 //     res.render("home")
 //   })
 
+//log in
 router.get('/login', passport.authenticate('auth0', {
         scope: 'openid email profile'
     }),
@@ -18,6 +19,7 @@ router.get('/login', passport.authenticate('auth0', {
         res.redirect("/user");
     });
 
+//redirect to home page after logout
 router.get('/logout', function (req, res) {
     req.logout();
     res.redirect("https://chewzy.auth0.com/v2/logout/?returnTo=https://sleepy-sierra-59381.herokuapp.com/");
@@ -25,7 +27,7 @@ router.get('/logout', function (req, res) {
 });
 
 
-
+//callback requered by the auth0 documentation
 router.get('/callback',
     passport.authenticate('auth0', {
         failureRedirect: '/failure'
@@ -36,7 +38,7 @@ router.get('/callback',
 );
 
 
-
+//error pages if something fails with auth0
 router.get('/failure', function (req, res) {
     var error = req.flash("error");
     var error_description = req.flash("error_description");

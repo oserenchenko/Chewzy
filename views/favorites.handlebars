@@ -11,7 +11,7 @@
     <p class="user"> {{email}}</p>
     <div id="app-name-border">
        {{!-- if user is signed in home button takes then to user, otherwise to home --}}
-                 {{#if user}}
+                 {{#if email}}
              <a href="/user"><i class="fas fa-home"></i></a>
              {{else}}
              <a href="/home"><i class="fas fa-home"></i></a>
