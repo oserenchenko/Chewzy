@@ -16,6 +16,7 @@ password: ChewzyTest1!
 
 
 ![homepage](chewzy.png)
+![homepage](test.gif)
 
 ## Getting Started
 to install locally run this command in your terminal
