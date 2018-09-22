@@ -14,7 +14,7 @@ email: test@test.com
 password: ChewzyTest1!
 ```
 
-![homepage](app_walkthrough.mp4)
+![homepage](chewzy_video.gif)
 
 ## Getting Started
 to install locally run this command in your terminal
