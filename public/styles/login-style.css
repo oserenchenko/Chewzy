@@ -40,8 +40,9 @@ html {
     margin-top: -20px;
 }
 
+
 #btns-wrap {
-    width: 98%;
+    width: 380px;
     height: 100vh;
     /* border: 1px rgba(0, 0, 0, 0) solid; */
     background-color: rgba(0, 0, 0, 0.5);
@@ -58,6 +59,12 @@ html {
     margin: 50px auto;
     border: 3px white solid;
     /* border:1px red solid; */
+}
+
+@media only screen and (max-width: 470px) {
+    #btns-wrap {
+        width: 98%;
+    }
 }
 
 #btn-wrap-color {
@@ -119,17 +126,17 @@ html {
     box-shadow: none;
     margin: 0 auto;
     display: block;
-    margin-top:20px;
+    margin-top: 20px;
     padding: 10px;
     /* border: 1px orange solid; */
     border-radius: 5px;
 }
 
 #skip {
- 
+
     border-bottom: 1px orange solid;
     color: orange;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .btns-style:focus {
@@ -141,7 +148,7 @@ html {
 }
 
 #skip:hover {
-    color:white;
+    color: white;
 }
 
 .btns-style:hover {
