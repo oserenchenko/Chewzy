@@ -1,28 +1,27 @@
-// require("dotenv").config();
 
-const express = require('express');
-const path = require('path');
-const logger = require('morgan');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const session = require('express-session');
-const dotenv = require("dotenv");
-const passport = require('passport');
-const Auth0Strategy = require('passport-auth0');
-const flash = require('connect-flash');
+var express = require('express');
+var path = require('path');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var session = require('express-session');
+var dotenv = require("dotenv");
+var passport = require('passport');
+var Auth0Strategy = require('passport-auth0');
+var flash = require('connect-flash');
 var exphbs = require("express-handlebars");
 var db = require("./models");
 
 dotenv.load();
 
-const routes = require('./routes/index');
-const user = require('./routes/user');
+var routes = require('./routes/index');
+var user = require('./routes/user');
 
 var PORT = process.env.PORT || 3000;
 var syncOptions = { force: false };
 console.log(process.env.AUTH0_ID);
 // This will configure Passport to use Auth0
-const strategy = new Auth0Strategy(
+var strategy = new Auth0Strategy(
   {
     domain: process.env.AUTH0_DOMAIN,
     clientID: process.env.AUTH0_ID,

@@ -1,6 +1,7 @@
 #wrap-all {
     display: block;
     position: relative;
+    
 }
 
 #wrap-all::after {
